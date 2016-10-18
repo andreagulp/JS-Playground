@@ -36,10 +36,10 @@
 
 @Injectable()
 export class HackernewsApiService {
-  baseUrl: string = 'https://github.ibm.com/api/v3/repos';
-  repoUrl: string = 'EMEA-Accelerate/Core-Team';
+  baseUrl: string = 'https://github.xxx.com/api/v3/repos';
+  repoUrl: string = 'xxx-xxx/xxx-xxx';
   itemTypeUrl: string = 'issues';
-  tokenUrl: string = '?access_token=d6ce7c2a96a7146f1da65e4392c37d19db1a7a7f';
+  tokenUrl: string = '?access_token=xxxxxxxxxxxxxxx';
 
   constructor(private http: Http) {}
 
