@@ -61,4 +61,14 @@ export class HackernewsApiService {
     </li>
 ```
 
++ Dependent calls: 
+Another common scenario is a call sequence of dependent http calls. In the below example I will make an initial call to load a customer. The returned customer object contains a contract url that I will be using to load a contract for that particular customer.
 
+```typescript
+this.http.get('./customer.json').map((res: Response) => {
+               this.customer = res.json();
+               return this.customer;
+            })
+            .flatMap((customer) => this.http.get(customer.contractUrl)).map((res: Response) => res.json())
+            .subscribe(res => this.contract = res);
+```  
