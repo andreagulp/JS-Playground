@@ -49,3 +49,16 @@ export class HackernewsApiService {
       )
   }
   ```
+  
+  
++ Take only the n items in a list
+```typescript
+```  
+
+```html
+    <li *ngFor="let item of items | slice:0:10" class="post">
+      {{item.title}}
+    </li>
+```
+
+
