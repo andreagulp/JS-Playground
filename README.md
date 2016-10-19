@@ -62,6 +62,7 @@ export class HackernewsApiService {
 ```
 
 + Dependent calls: 
+from syntaxsuccess
 Another common scenario is a call sequence of dependent http calls. In the below example I will make an initial call to load a customer. The returned customer object contains a contract url that I will be using to load a contract for that particular customer.
 
 ```typescript
@@ -72,3 +73,14 @@ this.http.get('./customer.json').map((res: Response) => {
             .flatMap((customer) => this.http.get(customer.contractUrl)).map((res: Response) => res.json())
             .subscribe(res => this.contract = res);
 ```  
+
+
++ Dependent calls:
+  - get git issues
+  - pass issue.number to component with @Input
+  - get zenhub issue
+  - initiate zenHub issue on the component receiving the input
+  - from https://github.com/hdjirdeh/angular2-hn
+
+
+ 
