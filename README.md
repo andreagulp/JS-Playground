@@ -82,7 +82,7 @@ this.http.get('./customer.json').map((res: Response) => {
   - initiate zenHub issue on the component receiving the input
   - from https://github.com/hdjirdeh/angular2-hn
 
-+ Observable filter operator
++ Observable filter operator (notice how filter is nested inside .map)
 ```typescript
   getClosedIssues(): Observable<any> {
     return this.http.get(this.gitApiUrl)
@@ -92,7 +92,7 @@ this.http.get('./customer.json').map((res: Response) => {
   }
 ```  
  
- + Generate with RANGE number from 1 to 50, then transform toString, filter out '10' and then return a string that contanates all value separated by the symbol |
+ + Generate with RANGE number from 1 to 50, then transform toString, filter out '10' and then return a string that contanates all value separated by the symbol '|'. (Notice how filter is not nested in to the map operator like in the example above)
 ```typescript
    genIssues(){
     let obs = Observable
