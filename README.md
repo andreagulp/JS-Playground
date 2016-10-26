@@ -82,5 +82,25 @@ this.http.get('./customer.json').map((res: Response) => {
   - initiate zenHub issue on the component receiving the input
   - from https://github.com/hdjirdeh/angular2-hn
 
-
++ Observable filter operator
+```typescript
+  getClosedIssues(): Observable<any> {
+    return this.http.get(this.gitApiUrl)
+      .map(response => response.json()
+      .filter(x => x.state === 'closed')
+      );
+  }
+```  
  
+ + Generate with RANGE number from 1 to 50, then transform toString, filter out '10' and then return a string that contanates all value separated by the symbol |
+```typescript
+   genIssues(){
+    let obs = Observable
+                .range(1, 50)
+                .map(x => x.toString())
+                .filter(x => x !== '10')
+                .reduce((acc, cur) => acc + ' | ' + cur);
+    return obs;
+  }
+```  
++ 
