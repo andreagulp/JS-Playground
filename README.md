@@ -103,4 +103,26 @@ this.http.get('./customer.json').map((res: Response) => {
     return obs;
   }
 ```  
-+ 
++ Assign local variable in the template
+
+app.html
+```html
+      <table style="width: 100%" cellspacing="0"><tr>
+        <td><md-input placeholder="link" style="width: 100%" #newLink></md-input></td>
+      </tr></table>
+      
+      <button md-fab (click)="addArticle(newTitle, newLink)" >
+        <md-icon class="md-24">add</md-icon>
+      </button>
+```  
+
+app.ts
+```typescript
+  addArticle(title: HTMLInputElement, link: HTMLInputElement) {
+    console.log(`I'm printing the title: ${title.value} and the link: ${link.value}`);
+    return false;
+  }
+```  
+
+
+
