@@ -123,6 +123,48 @@ app.ts
     return false;
   }
 ```  
+```typescript
+```  
 
++ How to sort a list
+
+app.ts
+```typescript
+export class ArticleFormComponent implements OnInit {
+  articles: Article[]
+
+  constructor() {
+    this.articles = [
+      new Article('Webpack update', 'https://github.com', 5),
+      new Article('Prerequisites', 'https://freter.io', 5),
+      new Article('Table of Contents', 'https://nmnmnmnm.tn', 5)
+    ]
+   }
+
+  ngOnInit() {
+  }
+
+  addArticle(title: HTMLInputElement, link: HTMLInputElement) {
+    console.log(`I'm printing the title: ${title.value} and the link: ${link.value}`);
+    this.articles.push(new Article(title.value, link.value, 0));
+    title.value  = '';
+    link.value = '';
+    return false;
+  }
+
+  sortedArticles(): Article[] {
+    return this.articles.sort((a, b) => b.votes - a.votes);
+  }
+
+}
+```  
+
+app.html have the ngFor loop trough sortedarticle() rather than articles[]
+
+```html
+<md-card *ngFor="let article of sortedArticles()">
+<app-article [article] = "article" ></app-article>
+</md-card>
+```
 
 
