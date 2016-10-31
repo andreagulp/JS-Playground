@@ -167,4 +167,12 @@ app.html have the ngFor loop trough sortedarticle() rather than articles[]
 </md-card>
 ```
 
++ use bootstrap only (no ng-version of it)
+
+```html
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+```
+
 
