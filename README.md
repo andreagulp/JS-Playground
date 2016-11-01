@@ -204,7 +204,7 @@ app.ts
 
 ```
 
-+ do more actions during .subscribe()
++ Do more actions during .subscribe() asyncronupsly
 ```typescript
   getAllGitHubIssues() {
     this.gitHubApiService.getAllGitHubIssues()
