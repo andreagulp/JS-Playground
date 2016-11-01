@@ -176,9 +176,9 @@ app.html have the ngFor loop trough sortedarticle() rather than articles[]
 ```
 
 + Combine multiple http call in 1 single array (hard coded instead of looping trough):
-1. forkJoin 2 or more http call 
-2. subscribe to combine result 
-3. redue combined result to flatten the array of arrays
+forkJoin 2 or more http call 
+subscribe to combine result 
+redue combined result to flatten the array of arrays
 
 service.ts
 ```typescript
