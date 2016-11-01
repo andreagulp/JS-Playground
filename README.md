@@ -204,3 +204,24 @@ app.ts
 
 ```
 
++ do more actions during .subscribe()
+```typescript
+  getAllGitHubIssues() {
+    this.gitHubApiService.getAllGitHubIssues()
+    .subscribe(
+      item => {
+        this.allGitIssues = [item[0], item[1], item[2]].reduce((a, b) => a.concat(b));
+
+        this.totalCount = this.allGitIssues.length;
+        this.openCount = this.allGitIssues.filter(x => x.state === 'open').length;
+        this.closedCount = this.allGitIssues.filter(x => x.state === 'closed').length;
+        this.closedPerc = (this.closedCount / this.totalCount) * 100;
+        this.openPerc = (this.openCount / this.totalCount) * 100;
+        this.daysOpen = this.allGitIssues.closed_at - this.allGitIssues.created_at;
+      },
+      error => console.log('I am an errorr from dashboard'),
+      () => console.log(`I am dashboard, done I gave you ${this.allGitIssues.length} issues.}`)
+    );
+}
+```
+
