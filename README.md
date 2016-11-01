@@ -175,4 +175,32 @@ app.html have the ngFor loop trough sortedarticle() rather than articles[]
 </head>
 ```
 
++ Combine multiple http call in 1 single array (hard coded instead of looping trough):
+1. forkJoin 2 or more http call 
+2. subscribe to combine result 
+3. redue combined result to flatten the array of arrays
+
+service.ts
+```typescript
+  getAllGitHubIssues(): Observable<any> {
+    return Observable.forkJoin(
+      this.http.get(`${this.gitFullUrl}&state=all&page=1`).map((response) => response.json()),
+      this.http.get(`${this.gitFullUrl}&state=all&page=2`).map((response) => response.json()),
+      this.http.get(`${this.gitFullUrl}&state=all&page=3`).map((response) => response.json())
+    );
+  }
+```
+
+app.ts
+```typescript
+  ngOnInit() {
+    this.gitHubApiService.getAllGitHubIssues()
+      .subscribe(
+        item => this.allGitIssues = [item[0], item[1], item[2]].reduce((a, b) => a.concat(b)),
+        error => console.log('I am an errorr from dashboard'),
+        () => console.log(`I am done I gave you ${this.allGitIssues.length} issues. Here is what I get: ${this.allGitIssues}`)
+      );
+  }
+
+```
 
