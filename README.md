@@ -1,5 +1,22 @@
 # Angular2-CookBook
 
++ VS Code, exclude specific file type:
+  - under the project explorer open .vscode folder and then setting.json. This allows to change configuration of VS code for the specific project
+  - add files.exclude:
+  ```json
+  {
+    "typescript.tsdk": "./node_modules/typescript/lib",
+	
+    "files.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true,
+		"**/.js": true,
+		"**/.js.map": true,
+		"**/*.spec.ts": true
+		
+	}    
+}
+  ```
 
 + Create an array with 30 items (progressing number from 0 to 29.
   Good for testing, can create random array
