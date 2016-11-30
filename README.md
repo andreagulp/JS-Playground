@@ -1,5 +1,86 @@
 # Angular2-CookBook
 
+
++ Service that takes an array inside an object
+	- For example you have a DB like this:
+```json
+{
+  "total_rows": 2,
+  "offset": 0,
+  "rows": [
+    {
+      "id": "7ee196004d9b1c2e9e4c74a1d9b588a1",
+      "key": "7ee196004d9b1c2e9e4c74a1d9b588a1",
+      "value": {
+        "rev": "1-967a00dff5e02add41819138abb3284d"
+      }
+    },
+    {
+      "id": "9d73a3ef260405a0fd702dcf385e9e4e",
+      "key": "9d73a3ef260405a0fd702dcf385e9e4e",
+      "value": {
+        "rev": "1-68bf69a09284f2fc7c4d3ede47e59d01"
+      }
+    }
+  ]
+}
+```
+	- You want only to take what is inside rows array and exclude summary information (total_rows and offset)
+	
+```typescript
+// service.ts
+
+import { Injectable } from '@angular/core';
+import { Http} from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+
+@Injectable()
+export class GetCloudantService {
+
+  serviceUrl: string = 'https://96d7577e-6f81-4571-9849-417aebe1a7b6-bluemix.cloudant.com/my_sample_db/_all_docs';
+
+  constructor(private http: Http) { }
+
+  getEntries(): Observable<any> {
+    return this.http.get(this.serviceUrl)
+      .map((response) => response.json().rows);
+  }
+
+}
+
+```
+
+```typescript
+// component.ts
+import { Component, OnInit } from '@angular/core';
+import { GetCloudantService } from '../services/get-cloudant.service';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent implements OnInit {
+
+  items: [any];
+
+  constructor(private getCloudantService: GetCloudantService) { }
+
+  ngOnInit() {
+    this.getCloudantService.getEntries()
+      .subscribe(
+        items => this.items = items,
+        error => console.log(`Errror didn't work`)
+      );
+  }
+
+
+}
+```
+
+
+
+
 + Error: “No 'Access-Control-Allow-Origin' header is present on the requested resource”
 
 
