@@ -134,7 +134,7 @@ shruti
 }
   ```
 
-+ Create an array with 30 items (progressing number from 0 to 29.
+## Create an array with 30 items (progressing number from 0 to 29.
   Good for testing, can create random array
 ```typescript
   //ts.
@@ -143,7 +143,7 @@ shruti
   }
 ```
 
-+ Call GitHub API, HTTP and Observable
+## Call GitHub API, HTTP and Observable
 
 ```html
   <!--component.html.-->
@@ -184,7 +184,7 @@ export class HackernewsApiService {
   ```
   
   
-+ Take only the n items in a list
+## Take only the n items in a list
 ```typescript
 ```  
 
@@ -194,7 +194,7 @@ export class HackernewsApiService {
     </li>
 ```
 
-+ Dependent calls: 
+## Dependent calls: 
 from syntaxsuccess
 Another common scenario is a call sequence of dependent http calls. In the below example I will make an initial call to load a customer. The returned customer object contains a contract url that I will be using to load a contract for that particular customer.
 
@@ -208,14 +208,14 @@ this.http.get('./customer.json').map((res: Response) => {
 ```  
 
 
-+ Dependent calls:
+## Dependent calls:
   - get git issues
   - pass issue.number to component with @Input
   - get zenhub issue
   - initiate zenHub issue on the component receiving the input
   - from https://github.com/hdjirdeh/angular2-hn
 
-+ Observable filter operator (notice how filter is nested inside .map)
+## Observable filter operator (notice how filter is nested inside .map)
 ```typescript
   getClosedIssues(): Observable<any> {
     return this.http.get(this.gitApiUrl)
@@ -225,7 +225,7 @@ this.http.get('./customer.json').map((res: Response) => {
   }
 ```  
  
- + Generate with RANGE number from 1 to 50, then transform toString, filter out '10' and then return a string that contanates all value separated by the symbol '|'. (Notice how filter is not nested in to the map operator like in the example above)
+## Generate with RANGE number from 1 to 50, then transform toString, filter out '10' and then return a string that contanates all value separated by the symbol '|'. (Notice how filter is not nested in to the map operator like in the example above)
 ```typescript
    genIssues(){
     let obs = Observable
@@ -236,7 +236,7 @@ this.http.get('./customer.json').map((res: Response) => {
     return obs;
   }
 ```  
-+ Assign local variable in the template
+## Assign local variable in the template
 
 app.html
 ```html
@@ -259,7 +259,7 @@ app.ts
 ```typescript
 ```  
 
-+ How to sort a list
+## How to sort a list
 
 app.ts
 ```typescript
@@ -300,7 +300,7 @@ app.html have the ngFor loop trough sortedarticle() rather than articles[]
 </md-card>
 ```
 
-+ use bootstrap only (no ng-version of it)
+## use bootstrap only (no ng-version of it)
 
 ```html
 <head>
@@ -308,7 +308,7 @@ app.html have the ngFor loop trough sortedarticle() rather than articles[]
 </head>
 ```
 
-+ Combine multiple http call in 1 single array (hard coded instead of looping trough):
+## Combine multiple http call in 1 single array (hard coded instead of looping trough):
   - forkJoin 2 or more http call 
   - subscribe to combine result 
   - redue combined result to flatten the array of arrays
@@ -337,7 +337,7 @@ app.ts
 
 ```
 
-+ Do more actions during .subscribe() asyncronupsly
+## Do more actions during .subscribe() asyncronupsly
 ```typescript
   getAllGitHubIssues() {
     this.gitHubApiService.getAllGitHubIssues()
