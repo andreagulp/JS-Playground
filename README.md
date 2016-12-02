@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit {
 
 
 
-+ Error: “No 'Access-Control-Allow-Origin' header is present on the requested resource”
++ Error: “No 'Access-Control-Allow-Origin' header is present on the requested resource”. Solution for development environemnt
 
 
 up vote
@@ -107,6 +107,11 @@ answered Mar 4 '15 at 6:42
 
 shruti
 2,858189
+
+
++ Error: “No 'Access-Control-Allow-Origin' header is present on the requested resource”. Solution for Cloudant DB
+
+	- Open Cloudant > Account > CORS Tab > set specific domain or disabled or allow all domain
 
 
 
