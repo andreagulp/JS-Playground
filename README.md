@@ -1,7 +1,7 @@
 # Angular2-CookBook
 
 
-+ Service that takes an array inside an object
+## Service that takes an array inside an object
 	- For example you have a DB like this:
 ```json
 {
@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit {
 
 
 
-+ Error: “No 'Access-Control-Allow-Origin' header is present on the requested resource”. Solution for development environemnt
+## Error: “No 'Access-Control-Allow-Origin' header is present on the requested resource”. Solution for development environemnt
 
 
 up vote
@@ -109,13 +109,13 @@ shruti
 2,858189
 
 
-+ Error: “No 'Access-Control-Allow-Origin' header is present on the requested resource”. Solution for Cloudant DB
+## Error: “No 'Access-Control-Allow-Origin' header is present on the requested resource”. Solution for Cloudant DB
 
 	- Open Cloudant > Account > CORS Tab > set specific domain or disabled or allow all domain
 
 
 
-+ VS Code, exclude specific file type:
+## VS Code, exclude specific file type:
   - In Vs code : File > Preferencies > Workspace setting. This will create a new folder with setting.json file on the root directory
   - under the project explorer open .vscode folder and then setting.json. This allows to change configuration of VS code for the specific project
   - add files.exclude:
