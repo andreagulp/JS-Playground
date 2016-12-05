@@ -70,7 +70,7 @@
         "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
       },
 ```
- > to flatten to 1 array container
+ > to flatten to 1 array container can use concat.apply
 
 
 ```javascript
@@ -80,7 +80,7 @@
             this.$http.get(apiUrl)
                 .then((response) => {
                     this.apiPosts.push(response.body);
-                    // this.apiPosts = [].concat.apply([], this.apiPosts);
+                    this.apiPosts = [].concat.apply([], this.apiPosts);
                     console.log('done');
                 }
                     );
