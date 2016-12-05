@@ -11,4 +11,47 @@
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 ```
 
+## Http get call from api end point
+
+  **NOTE:** Currently i can have this working only with vuejs 1
+  
+  1. Import Vue resource. e.g with CDN
+  ``` html
+  <body>
+  
+      <script src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
+  </body>
+```
+  2. in methods, build function to get result from api end point
+  
+  ``` javascript
+  // vue.js
+  
+  var vm1 = new Vue({
+    el: '#app1',
+    data: {
+        contacts: [],
+        apiPosts: [],
+    },
+
+    ready: function() {
+        this.getEntries();
+    },
+
+    methods: {
+        getEntries() {
+            var apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+
+            this.$http.get(apiUrl)
+                .then((response) => this.apiPosts.push(response));
+        }
+    }
+})
+  ```
+  
+``` html
+        <pre>
+            {{$data | json}}
+        </pre>
+```
 
