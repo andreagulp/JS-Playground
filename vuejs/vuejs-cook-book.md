@@ -56,3 +56,32 @@
           </pre>
   ```
 
+## Flatten array of array in promises
+ > api call to [https://jsonplaceholder.typicode.com/posts] 
+ > already retrives an array that is .put inside another array
+ > e.g.
+```json
+   "apiPosts": [
+    [
+      {
+        "userId": 1,
+        "id": 1,
+        "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+        "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+      },
+```
+ > to flatten to 1 array container
+```javascript
+        getEntries() {
+            var apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+
+            this.$http.get(apiUrl)
+                .then((response) => {
+                    this.apiPosts.push(response.body);
+                    // this.apiPosts = [].concat.apply([], this.apiPosts);
+                    console.log('done');
+                }
+                    );
+        },
+```
+
