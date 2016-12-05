@@ -49,9 +49,9 @@
 })
   ```
   
-``` html
-        <pre>
-            {{$data | json}}
-        </pre>
-```
+  ``` html
+          <pre>
+              {{$data | json}}
+          </pre>
+  ```
 
