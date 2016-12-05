@@ -71,6 +71,8 @@
       },
 ```
  > to flatten to 1 array container
+
+
 ```javascript
         getEntries() {
             var apiUrl = 'https://jsonplaceholder.typicode.com/posts';
