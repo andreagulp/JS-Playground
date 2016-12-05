@@ -50,6 +50,7 @@
   ```
   
   ``` html
+  <!-- vue.html -->
           <pre>
               {{$data | json}}
           </pre>
