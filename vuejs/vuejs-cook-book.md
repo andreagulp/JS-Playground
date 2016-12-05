@@ -51,9 +51,11 @@
   
   ``` html
   <!-- vue.html -->
-          <pre>
-              {{$data | json}}
-          </pre>
+        <div>
+            <ol>
+                <li v-for="post in apiPosts">{{post.title}}</li>
+            </ol>
+        </div>
   ```
 
 ## Flatten array of array in promises
