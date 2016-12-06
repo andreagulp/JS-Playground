@@ -1,5 +1,12 @@
 #Vue js  Cook Book
 
+## Intialize basic js project with npm
+ 1. Create Project folder
+ 2. Gitbash the folder
+ 3. `npm init`
+ 4. `npm install vue vue-resource bootstrap`
+ 5. `touch index.html app.js`
+
 ## Generate basic HTML boilerplate with emmet
 ```html
 ! <tab>
