@@ -122,11 +122,13 @@
  <input type="date" class="form-control" placeholder="date" v-model="event.date">
  ```
  4. Add a function to methods to push the 'event' object to 'events' array
+ 
  ```javascript
   addEvent: function() {
      this.events.push(this.event);
  }
 ```
+
  5. Add 'addEvent()' to html button
  
 ```html
