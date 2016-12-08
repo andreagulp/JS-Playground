@@ -123,12 +123,12 @@
  ```
  4. Add a function to methods to push the 'event' object to 'events' array
  ```javascript
-         addEvent: function() {
-            this.events.push(this.event);
-        }
+  addEvent: function() {
+     this.events.push(this.event);
+ }
 ```
  5. Add 'addEvent()' to html button
  
-``` html
+```html
 <button class=" btn btn-primary" v-on:click="addEvent()">add event</button>
 ```
