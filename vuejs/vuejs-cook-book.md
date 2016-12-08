@@ -102,3 +102,33 @@
             {{data | json}}
         </pre>
 ```
+
+
+## Add an item to an array - input bind from html input with v-model
+ 1. Create an empty array 'events'
+ 2. create an object 'event'
+ 
+ ```javascript
+     data: {
+        events: [],
+        event: {name: '', description: '', date: ''},
+    },
+```
+ 3. bind with v-model input in html referencing the 'event' object
+ 
+ ``` html
+ <input type="text" class="form-control" placeholder="event name" v-model="event.name">
+ <textarea type="text" class="form-control" placeholder="description" v-model="event.description"></textarea>
+ <input type="date" class="form-control" placeholder="date" v-model="event.date">
+ ```
+ 4. Add a function to methods to push the 'event' object to 'events' array
+ ```javascript
+         addEvent: function() {
+            this.events.push(this.event);
+        }
+```
+ 5. Add 'addEvent()' to html button
+ 
+``` html
+<button class=" btn btn-primary" v-on:click="addEvent()">add event</button>
+```
