@@ -99,7 +99,7 @@
 ## Use console-like html biding. good for debunging:
 ```html
         <pre>
-            {{data | json}}
+            {{$data}}
         </pre>
 ```
 
