@@ -134,3 +134,50 @@
 ```html
 <button class=" btn btn-primary" v-on:click="addEvent()">add event</button>
 ```
+
+
+## Get GitHub Issue with pagination indication (e.g rel = 'next')
+
+```javascript
+new Vue({
+    el: '#app',
+
+    data: {
+        gitPaginationHeaderLink: '',
+        gitPaginationSplit: {},
+        gitHeaderUrl: '',
+        gitRawStateSplit: {},
+        gitRawState: '',
+        gitHeaderState: '',
+        gitBaseUrl: 'https://github.ibm.com/api/v3/repos/EMEA-Accelerate/Core-Team/issues?access_token=d6ce7c2a96a7146f1da65e4392c37d19db1a7a7f&per_page=100&state=all&page=',
+
+        gitIssueNumbersList: [],
+        gitIssuesList: [],
+
+    },
+
+    ready: function() {
+    },
+
+    methods: {
+
+        getGitIssues(i) {
+
+            axios.get(this.gitBaseUrl + i)
+                .then(response => {
+                    this.gitIssuesList.push(response.data);
+                    this.gitIssuesList = [].concat.apply([], this.gitIssuesList);
+                    this.gitPaginationHeaderLink = response.headers.link;
+                    this.gitPaginationSplit = this.gitPaginationHeaderLink.split(',');
+                    this.gitHeaderUrl = this.gitPaginationSplit[0];
+                    this.gitRawStateSplit = this.gitHeaderUrl.split(';');
+                    this.gitRawState = this.gitRawStateSplit[1];
+                    this.gitHeaderState = this.gitRawState.replace(/rel="(.*)"/, '$1').trim();
+                })
+                .catch(error => 'Git get didn\'t work')
+            console.log('done');
+
+        }
+    }
+})
+```
