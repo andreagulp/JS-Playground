@@ -149,7 +149,7 @@ new Vue({
         gitRawStateSplit: {},
         gitRawState: '',
         gitHeaderState: '',
-        gitBaseUrl: 'https://github.ibm.com/api/v3/repos/EMEA-Accelerate/Core-Team/issues?access_token=d6ce7c2a96a7146f1da65e4392c37d19db1a7a7f&per_page=100&state=all&page=',
+        gitBaseUrl: 'https://github.ibm.com/api/v3/repos/EMEA-Accelerate/Core-Team/issues?access_token=xxxxxxxxx&per_page=100&state=all&page=',
 
         gitIssueNumbersList: [],
         gitIssuesList: [],
