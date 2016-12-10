@@ -235,3 +235,33 @@ new Vue({
     }
 })
 ```
+
+## Webpack snipets
+
+``` javascript
+// loader for json file
+      {
+        test: /\.json$/,
+        loader: 'json'
+      },
+
+
+// loader for scss files
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
+      },
+      
+// Include jquery
+
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery/dist/jquery",
+      jQuery: "jquery/dist/jquery",
+      "window.jQuery": "jquery/dist/jquery",
+      "window.$": "jquery/dist/jquery"
+    }),
+  ],
+      
+```
+
