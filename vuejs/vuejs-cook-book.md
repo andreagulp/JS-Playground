@@ -1,5 +1,67 @@
 #Vue js  Cook Book
 
+## Create Components
+
+1. $ vue init webpack-simple <project-name>
+2. Create a new file named AddTaskBtn.vue in components folder
+
+```html
+<template>
+    <button type="button" class="btn-add" >+++</button>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+
+        }
+    }
+}
+</script>
+
+<style>
+    .btn-add {color: #42b983;}
+
+</style>
+```
+ 3. add the component to root component App.vue
+ 
+ ``` html
+ <template>
+    <div id="app">
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+         <h2>Awesome Todo</h2> 05 December, 2016
+
+         <AddTaskBtn></AddTaskBtn>
+
+      </div>
+    </div>
+
+  </div>
+</template>
+
+<script>
+
+import AddTaskBtn from './components/AddTaskBtn.vue';
+
+export default {
+  name: 'app',
+  components: { AddTaskBtn },
+}
+
+</script>
+
+<style>
+a { color: #42b983;}
+</style>
+```
+
+
+
+
 ## Intialize basic js project with npm
  1. Create Project folder
  2. Gitbash the folder
@@ -9,7 +71,7 @@
 
 ## Generate basic HTML boilerplate with emmet
 ```html
-! <tab>
+! [tab]
 ```
 
 ## Add vue.js CDN
