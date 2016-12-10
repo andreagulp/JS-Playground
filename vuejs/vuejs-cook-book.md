@@ -5,26 +5,26 @@
 1. $ vue init webpack-simple <project-name>
 2. Create a new file named AddTaskBtn.vue in components folder
 
-```html
-<template>
-    <button type="button" class="btn-add" >+++</button>
-</template>
+    ```html
+    <template>
+        <button type="button" class="btn-add" >+++</button>
+    </template>
 
-<script>
-export default {
-    data() {
-        return {
+    <script>
+    export default {
+        data() {
+            return {
 
+            }
         }
     }
-}
-</script>
+    </script>
 
-<style>
-    .btn-add {color: #42b983;}
+    <style>
+        .btn-add {color: #42b983;}
 
-</style>
-```
+    </style>
+    ```
  3. add the component to root component App.vue
  
  ``` html
