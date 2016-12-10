@@ -2,7 +2,7 @@
 
 ## Create Components
 
-1. $ vue init webpack-simple <project-name>
+1. ```vue init webpack-simple <project-name>```
 2. Create a new file named AddTaskBtn.vue in components folder
 
     ```html
