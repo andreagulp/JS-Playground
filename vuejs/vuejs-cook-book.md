@@ -25,7 +25,8 @@
 
     </style>
     ```
- 3. add the component to root component App.vue
+    
+3. Add the component to root component App.vue
  
  ``` html
  <template>
