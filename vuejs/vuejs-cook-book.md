@@ -174,7 +174,7 @@ a { color: #42b983;}
  ```javascript
      data: {
         events: [],
-        event: {name: '', description: '', date: ''},
+        newEvent: {name: '', description: '', date: ''},
     },
 ```
  3. bind with v-model input in html referencing the 'event' object
@@ -188,7 +188,8 @@ a { color: #42b983;}
  
  ```javascript
   addEvent: function() {
-     this.events.push(this.event);
+     var event = this.newEvent;
+     this.events.push(event);
  }
 ```
 
