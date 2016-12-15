@@ -237,6 +237,47 @@ new Vue({
 })
 ```
 
+## Check box v-model false / true
+
+```html
+<input type="checkbox" name="" value="" class="checkbox" v-model="task.checked">
+```
+
+```javascript
+new Vue({
+  el: '#todo',
+  data: {
+    newTask: '',
+    taskList: []
+  },
+
+  methods: {
+    addTask () {
+      let task = this.newTask.trim();
+
+      if(task) {
+        this.taskList.push({
+          text: task,
+          checked: false
+        })
+        this.newTask = '';
+      }
+    }
+  }
+})
+```
+
+## Remove an item from an array
+
+```javascript
+    removeTask (task) {
+      let index = this.taskList.indexOf(task);
+      this.taskList.splice(index, 1);
+    }
+```
+
+
+
 ## Webpack snipets
 
 ``` javascript
