@@ -1,5 +1,27 @@
 #Vue js  Cook Book
 
+
+## v-bind with a css class
+
+```css
+.list li.done label {
+  color: #d9d9d9;
+  text-decoration: line-through;
+}
+```
+
+```javascrip
+<ul class="list">
+<li v-for="task in taskList" v-bind:class="{done: task.checked}">
+  <input type="checkbox" name="" value="" class="checkbox" v-model="task.checked">
+  <label for="checkbox">{{task.text}}</label>
+  <button type="button" name="button" class="delete" v-on:click="removeTask(task)">x</button>
+</li>
+</ul>
+```
+
+
+
 ## Create Components
 
 1. ```vue init webpack-simple <project-name>```
