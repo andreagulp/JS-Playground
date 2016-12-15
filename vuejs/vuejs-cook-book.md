@@ -1,5 +1,23 @@
 #Vue js  Cook Book
 
+## Togle mark all checkboxes
+
+```html
+<button type="button" name="button" v-on:click="markAll">Clear List</button>
+```
+
+```javascript
+markAll () {
+  for (var i = 0; i < this.taskList.length; i++) {
+    if (this.taskList[i].checked) {
+      this.taskList[i].checked = false ;
+    } else {
+      this.taskList[i].checked = true;
+    }
+  }
+}
+```
+
 
 ## v-bind with a css class
 
@@ -10,7 +28,7 @@
 }
 ```
 
-```javascrip
+```html
 <ul class="list">
 <li v-for="task in taskList" v-bind:class="{done: task.checked}">
   <input type="checkbox" name="" value="" class="checkbox" v-model="task.checked">
