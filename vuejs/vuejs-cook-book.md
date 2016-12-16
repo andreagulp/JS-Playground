@@ -1,5 +1,25 @@
 #Vue js  Cook Book
 
+## Atom snipets
+
+  1. Tab stops are defined using a dollar followed by a number, i.e. $1, $2, $3 etc. 
+  2. Single quotes within the body must be escaped with a preceding backslash (\').
+  3. The snippet scope in snippets.cson must also have a period added to the start of that string. Popular web-language scopes include:
+
+    - HTML: .text.html.basic
+    - CSS: .source.css
+    - SASS: .source.sass
+    - JavaScript: .source.js
+    - JSON: .source.json
+    - PHP: .text.html.php
+    - Java: .source.java
+    - Ruby: .text.html.erb
+    - Python: .source.python
+    - plain text (including markdown): .text.plain
+    
+  4. multi-line snippets can be defined using three double-quotes """ at the start and end of the body code. 
+
+
 ## Togle mark all checkboxes
 
 ```html
