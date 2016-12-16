@@ -18,6 +18,21 @@
     - plain text (including markdown): .text.plain
     
   4. multi-line snippets can be defined using three double-quotes """ at the start and end of the body code. 
+      
+      Multi-line Snippet Body
+
+>      '.source.js':
+>        'if, else if, else':
+>          'prefix': 'ieie'
+>          'body': """
+>            if (${1:true}) {
+>              $2
+>            } else if (${3:false}) {
+>              $4
+>            } else {
+>              $5
+>            }
+>          """
 
 
 ## Togle mark all checkboxes
