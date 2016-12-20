@@ -5,49 +5,208 @@
 ```vue
 <template lang="html">
 
-  <div class="positions">
+  <div class="container-fluid">
 
-    <ul>
-      <li v-for="position in jobPositions">
-        {{position.isCurrent}}
-      </li>
-    </ul>
+    <div id="timeline">
 
-    <button type="button" name="button" class="btn btn-success" v-on:click="getLinkedInProfile()">Click</button>
-      <pre>
-        {{$data}}
-      </pre>
+      <div class="row timeline-movement timeline-movement-top">
+        <div class="timeline-badge timeline-future-movement">
+          <a href="#">
+            <span class="glyphicon glyphicon-plus"></span>
+          </a>
+        </div>
+        <div class="timeline-badge timeline-filter-movement">
+          <a href="#">
+            <span class="glyphicon glyphicon-time"></span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="row timeline-movement" v-for="item in jobPositions">
+
+        <div class="timeline-badge">
+          <span class="timeline-balloon-date-day" v-if="item.endDate"> {{item.endDate.year}} </span>
+          <span class="timeline-balloon-date-month" >{{item.startDate.year}} </span>
+        </div>
+
+
+        <div class="col-sm-6  timeline-item">
+          <div class="row">
+            <div class="col-sm-11">
+              <div class="timeline-panel credits">
+                <ul class="timeline-panel-ul">
+                  <li><span class="importo">{{item.title}}</span></li>
+                  <li><span class="causale">{{item.company.name}} @ {{item.location.name}}</span> </li>
+                  <li v-if="item.isCurrent">
+                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Currently working here</small></p>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6  timeline-item">
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-11">
+                    <div class="timeline-panel debits">
+                        <ul class="timeline-panel-ul">
+                            <li><span class="importo">Mussum ipsum cacilds</span></li>
+                            <li><span class="causale">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span> </li>
+                            <li><p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11/09/2014</small></p> </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+      </div>
+      <!--due -->
+    </div>
   </div>
-
 </template>
 
 <script>
-import axios from 'axios'
+  import axios from 'axios'
 
-export default {
-  data() {
-    return {
-      msg: 'Positions',
-      jobPositions: '',
-      linkedInBaseUrl: 'https://api.linkedin.com/v1/people/~:(positions)?oauth2_access_token=AQVRR5D2BTynXzhabkzaf6cNXV2bNBAUryUI3tZ4Vuvd72n8Sc9zVcB3wusMndb5ScLHNDoaDFOY23nmLOR2rifjQdRp5kyXHzTUE3DkiT800_KfTK63BsdClnAX-XLf9AWhkaoXh3MGcdnrctTQLDFOuKAcD0PGDx7sPjCE2AFDZwn8YIw&format=json'
-    }
-  },
+  export default {
+    data() {
+      return {
+        msg: 'Positions',
+        jobPositions: '',
+        linkedInBaseUrl: 'https://api.linkedin.com/v1/people/~:(positions)?oauth2_access_token=xxxxxxxxxxxx&format=json'
+      }
+    },
 
-  ready: {
-
-  },
-  methods: {
-    getLinkedInProfile() {
+    created() {
       axios.get(this.linkedInBaseUrl)
         .then(response => {
           this.jobPositions = response.data.positions.values;
         })
+    },
+
+    methods: {
+
     }
   }
-}
 </script>
 
 <style lang="css">
+
+  #timeline {
+  list-style: none;
+  position: relative;
+  }
+  #timeline:before {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 2px;
+  background-color: #4997cd;
+  left: 50%;
+  margin-left: -1.5px;
+  }
+  #timeline .clearFix {
+  clear: both;
+  height: 0;
+  }
+  #timeline .timeline-badge {
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  font-size: 1.2em;
+  text-align: center;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  margin-left: -25px;
+  background-color: #4997cd;
+  z-index: 100;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  }
+  #timeline .timeline-badge span.timeline-balloon-date-day {
+  font-size: .7em;
+  }
+  #timeline .timeline-badge span.timeline-balloon-date-month {
+  font-size: .7em;
+  position: relative;
+  top: -10px;
+  }
+  #timeline .timeline-badge.timeline-filter-movement {
+  background-color: #ffffff;
+  font-size: 1.7em;
+  height: 35px;
+  margin-left: -18px;
+  width: 35px;
+  top: 40px;
+  }
+  #timeline .timeline-badge.timeline-filter-movement a span {
+  color: #4997cd;
+  font-size: 1.3em;
+  top: -1px;
+  }
+  #timeline .timeline-badge.timeline-future-movement {
+  background-color: #ffffff;
+  height: 35px;
+  width: 35px;
+  font-size: 1.7em;
+  top: -16px;
+  margin-left: -18px;
+  }
+  #timeline .timeline-badge.timeline-future-movement a span {
+  color: #4997cd;
+  font-size: .9em;
+  top: 2px;
+  left: 1px;
+  }
+  #timeline .timeline-movement {
+  border-bottom: dashed 1px #4997cd;
+  position: relative;
+  }
+  #timeline .timeline-movement.timeline-movement-top {
+  height: 60px;
+  }
+  #timeline .timeline-movement .timeline-item {
+  padding: 20px 0;
+  }
+  #timeline .timeline-movement .timeline-item .timeline-panel {
+  border: 1px solid #d4d4d4;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+  color: #666;
+  padding: 10px;
+  position: relative;
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  }
+  #timeline .timeline-movement .timeline-item .timeline-panel .timeline-panel-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  }
+  #timeline .timeline-movement .timeline-item .timeline-panel.credits .timeline-panel-ul {
+  text-align: right;
+  }
+  #timeline .timeline-movement .timeline-item .timeline-panel.credits .timeline-panel-ul li {
+  color: #666;
+  }
+  #timeline .timeline-movement .timeline-item .timeline-panel.credits .timeline-panel-ul li span.importo {
+  color: #468c1f;
+  font-size: 1.3em;
+  }
+  #timeline .timeline-movement .timeline-item .timeline-panel.debits .timeline-panel-ul {
+  text-align: left;
+  }
+  #timeline .timeline-movement .timeline-item .timeline-panel.debits .timeline-panel-ul span.importo {
+  color: #e2001a;
+  font-size: 1.3em;
+  }
 </style>
 
 ```
