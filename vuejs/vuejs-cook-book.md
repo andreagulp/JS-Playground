@@ -1,5 +1,10 @@
 #Vue js  Cook Book
 
+## Create a Github repo from Local repository
+
+Adding an existing project to GitHub using the command line
+From <https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/> 
+
 ## Add bootstrap.css to a vue-cli webpack installation
 
   1. ```npm install bootstrap@3 --save```
