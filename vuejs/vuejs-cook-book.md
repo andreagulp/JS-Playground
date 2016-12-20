@@ -1,5 +1,27 @@
 #Vue js  Cook Book
 
+## Add bootstrap.css to a vue-cli webpack installation
+
+  1. ```npm install bootstrap@3 --save```
+  2. then import in main.js
+  
+  ```javascript
+  //main.js
+  import Vue from 'vue'
+  import App from './App'
+  import '../node_modules/bootstrap/dist/css/bootstrap.css'
+
+  /* eslint-disable no-new */
+  new Vue({
+    el: '#app',
+    template: '<App/>',
+    components: { App }
+  })
+```
+
+
+
+
 ## Atom snipets
 
   1. Tab stops are defined using a dollar followed by a number, i.e. $1, $2, $3 etc. 
