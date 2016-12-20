@@ -216,6 +216,14 @@
 Adding an existing project to GitHub using the command line
 From <https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/> 
 
+ 1. ``` git init ```
+ 2. ``` git add . ```
+ 3. ``` git commit -m "First commit" ```
+ 4. ``` git remote add origin remote repository URL ```
+ 5. ``` git remote -v ```
+ 6. ``` git push origin master ```
+ 
+
 format of push command:
 ``` git push  <REMOTENAME> <BRANCHNAME> ```
 
