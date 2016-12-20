@@ -1,5 +1,57 @@
 #Vue js  Cook Book
 
+## LinkedIn API. Component to get job position list from user LinkedIn profile
+
+```vue
+<template lang="html">
+
+  <div class="positions">
+
+    <ul>
+      <li v-for="position in jobPositions">
+        {{position.isCurrent}}
+      </li>
+    </ul>
+
+    <button type="button" name="button" class="btn btn-success" v-on:click="getLinkedInProfile()">Click</button>
+      <pre>
+        {{$data}}
+      </pre>
+  </div>
+
+</template>
+
+<script>
+import axios from 'axios'
+
+export default {
+  data() {
+    return {
+      msg: 'Positions',
+      jobPositions: '',
+      linkedInBaseUrl: 'https://api.linkedin.com/v1/people/~:(positions)?oauth2_access_token=AQVRR5D2BTynXzhabkzaf6cNXV2bNBAUryUI3tZ4Vuvd72n8Sc9zVcB3wusMndb5ScLHNDoaDFOY23nmLOR2rifjQdRp5kyXHzTUE3DkiT800_KfTK63BsdClnAX-XLf9AWhkaoXh3MGcdnrctTQLDFOuKAcD0PGDx7sPjCE2AFDZwn8YIw&format=json'
+    }
+  },
+
+  ready: {
+
+  },
+  methods: {
+    getLinkedInProfile() {
+      axios.get(this.linkedInBaseUrl)
+        .then(response => {
+          this.jobPositions = response.data.positions.values;
+        })
+    }
+  }
+}
+</script>
+
+<style lang="css">
+</style>
+
+```
+
 ## Create a Github repo from Local repository
 
 Adding an existing project to GitHub using the command line
