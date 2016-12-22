@@ -1,5 +1,72 @@
 #Vue js  Cook Book
 
+## Extract a substring
+```javascript
+"gitPaginationHeaderLink": "<https://github.ibm.com/api/v3/repositories/71765/issues?access_token=d6ce7c2a96a7146f1da65e4392c37d19db1a7a7f&per_page=100&state=all&page=4>; rel=\"last\", <https://github.ibm.com/api/v3/repositories/71765/issues?access_token=d6ce7c2a96a7146f1da65e4392c37d19db1a7a7f&per_page=100&state=all&page=1>; rel=\"first\", <https://github.ibm.com/api/v3/repositories/71765/issues?access_token=d6ce7c2a96a7146f1da65e4392c37d19db1a7a7f&per_page=100&state=all&page=4>; rel=\"prev\"",
+  
+        this.paginationStatus = this.gitPaginationHeaderLink.substring(this.gitPaginationHeaderLink.lastIndexOf('>; rel=\"last\"'), this.gitPaginationHeaderLink.lastIndexOf('&page=')+6); //isolate last page number info
+        this.paginationStatus = parseInt(this.paginationStatus) // convert number saved as a string in a integer
+```
+
+## Query Github api issue and traverse trhough pagination with a function recursion
+
+It calls the API with a progressive page number until the response is not blank
+
+```html
+<template lang="html">
+  <div class="test001">
+    <h1>Git Hub Test components</h1>
+    <button type="button" name="button" class="btn btn-success" v-on:click="getGitHub()">+</button>
+    <pre>
+      {{$data}}
+    </pre>
+  </div>
+</template>
+
+<script>
+import axios from 'axios'
+
+export default {
+  data() {
+    return {
+      gitPaginationHeaderLink: '',
+      paginationStatus: 0,
+      msg: 'Hey',
+      gitHubBaseUrl: 'https://github.ibm.com/api/v3/repos/EMEA-Accelerate/Core-Team/issues?access_token=d6ce7c2a96a7146f1da65e4392c37d19db1a7a7f&per_page=100&state=all&page=',
+      pageNum: 0,
+      issueCount: 0,
+      gitHubIssueList: []
+    }
+  },
+
+  methods: {
+    getGitHub() {
+      // create  page number that increases for each recursion
+      this.pageNum++;
+
+      axios.get(this.gitHubBaseUrl + this.pageNum)
+        .then(response => {
+          this.gitHubIssueList.push(response.data); //each run push the data in the array containing the list of issues
+          this.gitHubIssueList = [].concat.apply([], this.gitHubIssueList); // flatten all array in 1
+          this.issueCount = this.gitHubIssueList.length
+
+          if (response.data.length !== 0) { //if this condition is true the function recusrsively calls itself
+            this.getGitHub()
+          }
+        })
+    }
+
+  }
+
+}
+</script>
+
+<style lang="css">
+</style>
+
+  ```
+  
+
 ## Import axios in vue cli webpack applicaton
   
   1. Save axios ``` npm install axios --save ```
