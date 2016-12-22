@@ -2,7 +2,7 @@
 
 ## Extract a substring
 ```javascript
-"gitPaginationHeaderLink": "<https://github.ibm.com/api/v3/repositories/71765/issues?access_token=d6ce7c2a96a7146f1da65e4392c37d19db1a7a7f&per_page=100&state=all&page=4>; rel=\"last\", <https://github.ibm.com/api/v3/repositories/71765/issues?access_token=d6ce7c2a96a7146f1da65e4392c37d19db1a7a7f&per_page=100&state=all&page=1>; rel=\"first\", <https://github.ibm.com/api/v3/repositories/71765/issues?access_token=d6ce7c2a96a7146f1da65e4392c37d19db1a7a7f&per_page=100&state=all&page=4>; rel=\"prev\"",
+"gitPaginationHeaderLink": "<https://github.ibm.com/api/v3/repositories/71765/issues?access_token=XXXXXXX&per_page=100&state=all&page=4>; rel=\"last\", <https://github.ibm.com/api/v3/repositories/71765/issues?access_token=XXXXXXX&per_page=100&state=all&page=1>; rel=\"first\", <https://github.ibm.com/api/v3/repositories/71765/issues?access_token=XXXXXXX&per_page=100&state=all&page=4>; rel=\"prev\"",
   
         this.paginationStatus = this.gitPaginationHeaderLink.substring(this.gitPaginationHeaderLink.lastIndexOf('>; rel=\"last\"'), this.gitPaginationHeaderLink.lastIndexOf('&page=')+6); //isolate last page number info
         this.paginationStatus = parseInt(this.paginationStatus) // convert number saved as a string in a integer
@@ -32,7 +32,7 @@ export default {
       gitPaginationHeaderLink: '',
       paginationStatus: 0,
       msg: 'Hey',
-      gitHubBaseUrl: 'https://github.ibm.com/api/v3/repos/EMEA-Accelerate/Core-Team/issues?access_token=d6ce7c2a96a7146f1da65e4392c37d19db1a7a7f&per_page=100&state=all&page=',
+      gitHubBaseUrl: 'https://github.ibm.com/api/v3/repos/EMEA-Accelerate/Core-Team/issues?access_token=XXXXXXXXXXXXXX&per_page=100&state=all&page=',
       pageNum: 0,
       issueCount: 0,
       gitHubIssueList: []
