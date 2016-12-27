@@ -1,5 +1,103 @@
 #Vue js  Cook Book
 
+
+## Setup routing
+
+  1. ``` npm i vue-router --save ```
+  2. main.js
+  
+  ```javascript
+  import Vue from 'vue'
+  import App from './App'
+  import VueRouter from 'vue-router'
+
+  import HomeApp from './components/HomeApp.vue';
+  import AboutApp from './components/AboutApp.vue';
+  import ContactApp from './components/ContactApp.vue'
+
+  Vue.use(VueRouter)
+
+  const routes = [
+    {path: '/', component: HomeApp},
+    {path: '/about', component: AboutApp},
+    {path: '/contact', component: ContactApp},
+
+  ];
+
+  const router = new VueRouter ({
+    routes,
+    mode: 'history'
+  })
+
+  /* eslint-disable no-new */
+  new Vue({
+    el: '#app',
+    router,
+    template: '<App/>',
+    components: { App }
+  })    
+  ```
+  
+  3. App.vue
+  ```html
+  <template>
+    <div id="app">
+      <img src="./assets/logo.png">
+      <HeaderApp></HeaderApp>
+      <router-view></router-view>
+    </div>
+  </template>
+
+  <script>
+  import HeaderApp from './components/HeaderApp.vue'
+
+  export default {
+    name: 'app',
+    components: {
+      HeaderApp
+    }
+  }
+  </script>
+
+  <style>
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
+  </style>
+```  
+
+  4. HeaderApp.vue
+  
+  ```html
+  <template lang="html">
+    <div class="">
+
+      <p>I am an Header</p>
+      <router-link to="/">Home</router-link>
+      <router-link to="/about">About</router-link>
+      <router-link to="/contact">Contact</router-link>
+
+    </div>
+  </template>
+
+  <script>
+  export default {
+  }
+  </script>
+
+  <style lang="css">
+  </style>
+  ```
+  
+  
+
+
+
 ## Extract a substring
 ```javascript
 "gitPaginationHeaderLink": "<https://github.ibm.com/api/v3/repositories/71765/issues?access_token=XXXXXXX&per_page=100&state=all&page=4>; rel=\"last\", <https://github.ibm.com/api/v3/repositories/71765/issues?access_token=XXXXXXX&per_page=100&state=all&page=1>; rel=\"first\", <https://github.ibm.com/api/v3/repositories/71765/issues?access_token=XXXXXXX&per_page=100&state=all&page=4>; rel=\"prev\"",
