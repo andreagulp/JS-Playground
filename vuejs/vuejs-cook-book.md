@@ -1,7 +1,7 @@
 #Vue js  Cook Book
 
 
-## Setup routing
+## Setup routing as part of main.js
 
   1. ``` npm i vue-router --save ```
   2. main.js
@@ -95,6 +95,54 @@
   ```
   
   
+## Setup routing in a separate file
+
+  >> This example is based on the previous one
+  
+  1. From main js copy the routing configuration in a separate file src/router/router.js
+  2. export the router (see bottom of the code)
+  
+  ``` javascript
+  import Vue from 'vue'
+  import VueRouter from 'vue-router'
+
+  import HomeApp from '../components/HomeApp.vue';
+  import AboutApp from '../components/AboutApp.vue';
+  import ContactApp from '../components/ContactApp.vue'
+
+  Vue.use(VueRouter)
+
+  const routes = [
+    {path: '/', component: HomeApp},
+    {path: '/about', component: AboutApp},
+    {path: '/contact', component: ContactApp},
+
+  ];
+
+  const router = new VueRouter ({
+    routes,
+    mode: 'history'
+  })
+
+  export default router;
+```
+
+  3. main.js remains like this:
+  
+  ``` javascript
+  import Vue from 'vue'
+  import App from './App'
+  import router from './router/router';
+
+  /* eslint-disable no-new */
+  new Vue({
+    el: '#app',
+    router,
+    template: '<App/>',
+    components: { App }
+  })  
+  
+  ```
 
 
 
