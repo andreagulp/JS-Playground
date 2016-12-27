@@ -435,6 +435,10 @@ export default {
 Adding an existing project to GitHub using the command line
 From <https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/> 
 
+If you need to remove a previous orogin (this will clean it and allow to store a new remote origin
+``` git remote rm origin ```
+
+
  1. ``` git init ```
  2. ``` git add . ```
  3. ``` git commit -m "First commit" ```
