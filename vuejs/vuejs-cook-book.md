@@ -1,5 +1,15 @@
 #Vue js  Cook Book
 
+## Options for component communications
+
+how these two components will communicate with each other. Some possibilities are:
+  1. Let SaveProductForm handle the form state, then use a global event bus with a publish/subscribe model to let the ProductList know when a product has been created.
+  2. Move the SaveProductForm component into the ProductList component and let the product list handle the state.
+  3. Let the parent component handle the state and pass it as props.
+  4. Implement a unidirectional flow and move state out of the components.
+
+From <https://jayway.github.io/vue-js-workshop/docs/add-products.html> 
+
 
 ## Setup routing as part of main.js
 
