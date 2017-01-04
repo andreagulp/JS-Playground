@@ -1,5 +1,13 @@
 #Vue js  Cook Book
 
+
+## use filter in javascript to count based on filter criteria
+
+```javascript
+    this.issueOpenCount = this.gitHubIssueList.filter(x => x.state === 'open').length;
+    this.issueClosedCount = this.gitHubIssueList.filter(x => x.state === 'closed').length;
+```
+
 ## Options for component communications
 
 how these two components will communicate with each other. Some possibilities are:
