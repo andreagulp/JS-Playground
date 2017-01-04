@@ -1,11 +1,30 @@
 #Vue js  Cook Book
 
 
-## use filter in javascript to count based on filter criteria
+## Use filter in javascript to count based on filter criteria
 
 ```javascript
     this.issueOpenCount = this.gitHubIssueList.filter(x => x.state === 'open').length;
     this.issueClosedCount = this.gitHubIssueList.filter(x => x.state === 'closed').length;
+```
+
+## Render list when object are nested
+For some reason v-for is not working in case you have a nested array.
+The solution is to iteration with another v-for inside the main iteration
+
+```html
+      <tr v-for="issue in gitHubIssueList">
+          <td data-label="Repo">{{gitHubRepoUrl}}</td>
+          <td data-label="Name">{{issue.title}}</td>
+          <td data-label="Assignee">{{issue.user.login}}</td>
+          <td data-label="Label">
+            <span v-for="label in issue.labels">{{label.name}}, </span>
+          </td>
+          <td data-label="State">{{issue.state}}</td>
+          <td data-label="Created">{{issue.created_at}}</td>
+          <td data-label="Closed">{{issue.closed_at}}</td>
+      </tr>
+              
 ```
 
 ## Options for component communications
