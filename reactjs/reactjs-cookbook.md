@@ -7,3 +7,19 @@
 - [#ReactForNewbies: Building a Todo App with Create-React-App [Part 2]] (https://edemkumodzi.com/reactfornewbies-building-a-todo-app-with-create-react-app-part-2-f846e2d8b820#.ll0rd3fid)
 - [#ReactForNewbies: Building a Todo App with Create-React-App [Part 3]] (https://edemkumodzi.com/reactfornewbies-building-a-todo-app-with-create-react-app-part-3-e735065521b#.l8elp7t8l)
 - [#ReactForNewbies: Building a Todo App with Create-React-App [Part 4]] (https://edemkumodzi.com/reactfornewbies-building-a-todo-app-with-create-react-app-part-4-c87cd06876e3#.46zc4q2qf)
+
+
+## Use create-react-app command
+```create-react-app <my-project>```
+
+## Import external library
+
+  1. cmd project folder and install library
+    ``` npm i moment --save```
+  2. import the library (could be index.js or app.js to make available globally or a specific component)
+    ```javascript
+    import Moment from 'moment';
+    ```
+
+
+
