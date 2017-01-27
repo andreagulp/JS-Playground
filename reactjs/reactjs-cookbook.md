@@ -10,12 +10,17 @@
 
 
 ## Use create-react-app command
-```create-react-app <my-project>```
+command to create app
+```sh
+create-react-app my-project
+```
 
 ## Import external library
 
   1. cmd project folder and install library
-    ``` npm i moment --save```
+    ```sh
+    npm i moment --save
+    ```
   2. import the library (could be index.js or app.js to make available globally or a specific component)
     ```javascript
     import Moment from 'moment';
