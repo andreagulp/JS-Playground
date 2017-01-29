@@ -29,7 +29,88 @@ create-react-app my-project
     import Moment from 'moment';
     ```
     
-## Next Topic
+## render an array of items with .map
+
+  - App.js
+  
+  ```javascript
+    import React, { Component } from 'react';
+    import './App.css';
+
+    import TaskList from './components/TaskList';
+
+    class App extends Component {
+      constructor (props) {
+        super (props);
+        this.state = {
+          tasks: [
+            {id: 1, name: 'Do this and That'},
+            {id: 2, name: 'Buy some Milk'}
+          ],
+
+          userInputTaskName: ''
+        }
+      }
 
 
+      render() {
+        return (
+          <div className="App">
+            <TaskList tasks={this.state.tasks} />
+          </div>
+        );
+      }
+    }
 
+    export default App;
+```
+
+  - TaskList.js
+  
+  ```javascript
+    import React, { Component } from 'react';
+
+    import Task from './Task';
+
+    class TaskList extends Component {
+      constructor (props) {
+        super (props);
+        this.state = {}
+      }
+      render () {
+        return (
+            <div>
+              <ul>
+                {this.props.tasks.map((task, i) => <Task task={task} key={i}/>)}
+              </ul>
+            </div>
+        )
+      }
+    };
+    export default TaskList
+  ```
+
+  - Task.js
+  
+  ```javascript
+    import React, { Component } from 'react';
+
+    class Task extends Component {
+      constructor (props) {
+        super (props);
+        this.state = {}
+      }
+      render () {
+        return (
+            <div>
+              <span>{this.props.task.id} - </span>
+              <label>{this.props.task.name}  </label>
+            </div>
+        )
+      }
+    };
+    export default Task
+  ```
+
+
+## Nex Topic
