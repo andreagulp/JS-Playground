@@ -188,7 +188,7 @@ create-react-app my-project
 
 ## Add element to Array
 
-  See example above (Bind Input Field. Notice function
+  See example above (Bind Input Field). Notice function addTask(). The function builds a newTask based on the user task name and the id (see in the code to understand how it is derived as unique value). At the end it creates a new Array of tasks which = oldArray.concat(newObject)
   
   ```javascript
     addTask = (e) => {
