@@ -113,4 +113,87 @@ create-react-app my-project
   ```
 
 
-## Nex Topic
+## Bind Input Field
+
+  1. App.js
+  use onChange event on the input field to track if the field changes. if yes the handleInputChange() will take the target.value of the   element input, store it on a temporary variable and then use it to setState.
+  
+  ```javascript
+    import React, { Component } from 'react';
+    import './App.css';
+
+    import TaskForm from './components/TaskForm';
+    import TaskList from './components/TaskList';
+    import AddTaskButton from './components/AddTaskButton';
+
+    class App extends Component {
+      constructor (props) {
+        super (props);
+        this.state = {
+          tasks: [
+            {id: 1, name: 'Do this and That'},
+            {id: 2, name: 'Buy some Milk'}
+          ],
+          userInputName: ''
+        }
+      }
+
+      addTask = (e) => {
+        let newTask = {id: this.state.tasks.length+1, name: this.state.userInputName};
+        let newTasks = this.state.tasks.concat(newTask);
+        this.setState({tasks: newTasks})
+      }
+
+      handleinputChange = (e) => {
+        let newUserInputName = e.target.value;
+        this.setState({userInputName: newUserInputName})
+      }
+
+      render() {
+        return (
+          <div className="App">
+            <Header />
+            <TaskForm handleinputChange={this.handleinputChange} userInputName={this.userInputName}/>
+            <AddTaskButton addTask={this.addTask}/>
+            <TaskList tasks={this.state.tasks} />
+          </div>
+        );
+      }
+    }
+
+    export default App;
+  ```
+  
+  2. TaskForm.js
+  
+  ```javascript
+    import React, { Component } from 'react';
+
+    class TaskForm extends Component {
+      constructor (props) {
+        super (props);
+        this.state = {}
+      }
+      render () {
+        return (
+            <div>
+              <h1>TaskForm Component Working</h1>
+              <input value={this.props.userInputName} onChange={this.props.handleinputChange} />
+            </div>
+        )
+      }
+    };
+    export default TaskForm
+  ```
+
+## Add element to Array
+
+  See example above (Bind Input Field. Notice function
+  
+  ```javascript
+    addTask = (e) => {
+      let newTask = {id: this.state.tasks.length+1, name: this.state.userInputName};
+      let newTasks = this.state.tasks.concat(newTask);
+      this.setState({tasks: newTasks})
+    }
+  ```
