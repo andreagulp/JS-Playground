@@ -8,6 +8,9 @@
 - [#ReactForNewbies: Building a Todo App with Create-React-App [Part 3]] (https://edemkumodzi.com/reactfornewbies-building-a-todo-app-with-create-react-app-part-3-e735065521b#.l8elp7t8l)
 - [#ReactForNewbies: Building a Todo App with Create-React-App [Part 4]] (https://edemkumodzi.com/reactfornewbies-building-a-todo-app-with-create-react-app-part-4-c87cd06876e3#.46zc4q2qf)
 
+## Import bootstrap 3
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 ## Use create-react-app command
 command to create app
