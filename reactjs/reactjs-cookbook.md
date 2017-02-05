@@ -10,9 +10,11 @@
 
 ## Import bootstrap 3, theme, fonteawesome
 
+```sh
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'font-awesome/css/font-awesome.css';
+```
 
 
 ## Use create-react-app command
