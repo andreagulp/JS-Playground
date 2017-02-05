@@ -8,6 +8,74 @@
 - [#ReactForNewbies: Building a Todo App with Create-React-App [Part 3]] (https://edemkumodzi.com/reactfornewbies-building-a-todo-app-with-create-react-app-part-3-e735065521b#.l8elp7t8l)
 - [#ReactForNewbies: Building a Todo App with Create-React-App [Part 4]] (https://edemkumodzi.com/reactfornewbies-building-a-todo-app-with-create-react-app-part-4-c87cd06876e3#.46zc4q2qf)
 
+## Implement Local Storage
+```javascript
+import React, { Component } from 'react';
+
+import ItemList from './ItemList';
+import itemsDB from '.././assets/itemsDB';
+import Header from './Header';
+import AddItemForm from './AddItemForm';
+
+class App extends Component {
+  constructor (props) {
+    super (props);
+    this.state = {
+      items: this.getLocalTodos() || itemsDB,
+      newItem: {title: ''}
+    }
+  }
+
+  handleChange = (e) => {
+    let tempItem = e.target.value;
+    this.setState({newItem: {title: tempItem}})
+  }
+
+  addItem = () => {
+    this.state.items.push(this.state.newItem);
+    this.setState({
+      items: this.state.items
+    })
+    this.updateLocalTodos(this.state.items);
+  }
+
+  render() {
+    return (
+        <div className="container">
+          <AddItemForm handleChange={this.handleChange} addItem={this.addItem}/>
+          <Header />
+          <ItemList items={this.state.items}/>
+        </div>
+    );
+  }
+
+  updateLocalTodos = (todos) => {
+    if (!window.localStorage) {
+        console.log("Your browser dose NOT support localStorage!");
+        return;
+    }
+    localStorage["IssueRisk-Log-Storage"] = JSON.stringify(todos);
+  }
+
+  getLocalTodos = () => {
+      if (!window.localStorage) {
+          console.log("Your browser dose NOT support localStorage!");
+          return "";
+      }
+      if (localStorage["IssueRisk-Log-Storage"]) {
+          console.log(JSON.parse(localStorage["IssueRisk-Log-Storage"]));
+          return JSON.parse(localStorage["IssueRisk-Log-Storage"]);
+      } else {
+          return "";
+      }
+    }
+
+}
+
+export default App;
+```
+
+
 ## Import bootstrap 3, theme, fonteawesome
 
 ```sh
