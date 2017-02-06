@@ -4,6 +4,32 @@
   - How to clear an input field?
   - How to bind multiple field and add them to an array list?
   
+## Clean Input Field
+
+  1. in App.js create a function that receives whatever value is in the input field. Pass it down until the component should use it
+  
+  ```javascript
+    handleChange = (e) => {
+    let tempItem = e.target.value;
+    this.setState({newItem: {title: tempItem, isClosed: false}})
+    }
+  ```
+  
+  2. In the method that adds the item to the array, add a code that cleans the binded property of the input field
+  
+  ```javascript
+    addItem = (e) => {
+      e.preventDefault();
+      this.state.items.push(this.state.newItem);
+      this.setState({
+        items: this.state.items,
+        newItem: {title: ''}
+      })
+      this.updateLocalTodos(this.state.items);
+    }
+  ```
+  
+  
 
 ## Dynamic link in img
 
