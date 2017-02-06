@@ -1,5 +1,19 @@
 # Reactjs Cookbook
 
+## Questions that need answers
+  - How to clear an input field?
+  
+
+## Dynamic link in img
+
+```javascript
+import logo from './../assets/logo.svg';
+
+[...]
+        <img src={logo}/>
+```
+
+
 ## Delete item from array with onClick event
 
   1. in App.js, the state has a property `items: [{title: 'a title for item'}]` and `deleteItem` method
