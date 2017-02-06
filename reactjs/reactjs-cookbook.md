@@ -411,3 +411,50 @@ create-react-app my-project
     };
     export default AddTaskButton
   ```
+
+## Add multiple inputs field to an array of object using refs
+
+```javascript
+import React, { Component } from 'react';
+
+class App extends Component {
+  constructor (props) {
+    super (props);
+    this.state = {
+      contacts: [
+        {id: 1, name: 'andrea', phone: '09856390'},
+        {id: 2, name: 'mario', phone: '1234567890'},
+        {id:3, name: 'giuseppe', phone: '0987654321'},
+      ]
+    }
+  }
+
+  addContact = (e) => {
+    e.preventDefault();
+    let name = this.refs.name.value;
+    let phone = this.refs.phone.value;
+    let id = Math.floor((Math.random() * 100) + 1);
+    this.setState({
+      contacts: this.state.contacts.concat({id, phone, name})
+    })
+    console.log(this.state.contacts);
+  }
+
+  render () {
+    return (
+        <div>
+          <h1>App Component Working</h1>
+          <form onSubmit={this.addContact}>
+            <input type="text" ref="name" />
+            <input type="text" ref="phone" />
+            <button type="submit">Add New Contact</button>
+          </form>
+          <ul>
+            {this.state.contacts.map((contact, i) => <li key={i}>{contact.name} | {contact.phone}</li>)}
+          </ul>
+        </div>
+    )
+  }
+};
+export default App
+```
