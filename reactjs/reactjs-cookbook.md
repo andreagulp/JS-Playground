@@ -1,5 +1,81 @@
 # Reactjs Cookbook
 
+## Delete item from array with onClick event
+
+  1. in App.js, the state has a property `items: [{title: 'a title for item'}]` and `deleteItem` method
+  2. `deleteItem()` takes an `index`(see later for explanation). `index` is used by `splice()` function to eliminate 1 element starting at the position of `index`, then `setState` making items = to items
+  
+  ```javascript
+  class App extends Component {
+  constructor (props) {
+    super (props);
+    this.state = {
+      items: this.getLocalTodos() || itemsDB,
+      newItem: {title: ''}
+    }
+  }
+  
+    deleteItem = (index) => {
+    this.state.items.splice(index, 1);
+    this.setState({items: this.state.items});
+    this.updateLocalTodos(this.state.items)
+  }
+  
+  ```
+  
+  3. `this.state.items` and `deleteItem(index)` are passed down App.js -> ItemList.js -> Item.js
+    3.1. From App.js -> ItemList.js
+
+    ```javascript
+      render() {
+      return (
+          <div className="container">
+            <ItemList
+              items={this.state.items}
+              deleteItem={(index) => this.deleteItem(index)}
+            />
+          </div>
+      );
+    }
+    ```
+  
+    3.2. From ItemList.js -> Item.js
+    
+    ```javascript
+        <ul className="event-list">
+          {this.props.items.map((item, i) => 
+            <Item 
+              key={i} 
+              item={item} 
+              index={i} 
+              deleteItem={(index) => this.props.deleteItem(i)} 
+            />)}
+        </ul>
+    ```
+  
+  4. In Item.js, use a function to store `index` props
+  ```javascript
+    deleteItem = () => {
+      this.props.deleteItem(this.props.index);
+  }
+  ```
+  
+  5. Now we can use the new created function with a click event
+  
+  ```javascript
+      <li className="facebook" >
+        <a href="#facebook">
+          <span 
+            className="todo-delete fa fa-trash" 
+            onClick={() => this.deleteItem()}>
+          </span>
+        </a>
+      </li>
+  ```
+  
+  
+  
+
 ## Tutorials
 - [codecademy.com] (https://www.codecademy.com/)
 - Pluralsight
