@@ -1,8 +1,68 @@
 # Reactjs Cookbook
 
 ## Questions that need answers
-  - How to clear an input field?
-  - How to bind multiple field and add them to an array list?
+  - How to clear an input field? - DONE
+  - How to bind multiple field and add them to an array list? - DONE
+  
+  
+## Basic Search in a list of items
+
+```javascript
+import React, { Component } from 'react';
+
+class App extends Component {
+  constructor (props) {
+    super (props);
+    this.state = {
+      contacts: [
+        {id: 1, name: 'andrea', phone: '09856390'},
+        {id: 2, name: 'mario', phone: '1234567890'},
+        {id:3, name: 'giuseppe', phone: '0987654321'},
+      ],
+      search: ''
+    }
+  }
+
+  addContact = (e) => {
+    e.preventDefault();
+    let name = this.refs.name.value;
+    let phone = this.refs.phone.value;
+    let id = Math.floor((Math.random() * 100) + 1);
+    this.setState({
+      contacts: this.state.contacts.concat({id, phone, name})
+    })
+    this.refs.name.value = '';
+    this.refs.phone.value = '';
+  }
+
+  updateSearch = (e) => {
+    this.setState({
+      search: e.target.value
+    })
+  }
+
+  render () {
+    let filteredContacts = this.state.contacts.filter((contact) => contact.name.indexOf(this.state.search) !== -1)
+
+    return (
+        <div>
+          <h1>App Component Working</h1>
+          <input type="text" value={this.state.search} onChange={this.updateSearch} />
+          <form onSubmit={this.addContact}>
+            <input type="text" ref="name" autoFocus/>
+            <input type="text" ref="phone" />
+            <button type="submit">Add New Contact</button>
+          </form>
+          <ul>
+            {filteredContacts.map((contact, i) => <li key={contact.id}>{contact.name} | {contact.phone}</li>)}
+          </ul>
+        </div>
+    )
+  }
+};
+export default App
+```
+
   
 ## Clean Input Field
 
