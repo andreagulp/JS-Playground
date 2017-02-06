@@ -2,6 +2,7 @@
 
 ## Questions that need answers
   - How to clear an input field?
+  - How to bind multiple field and add them to an array list?
   
 
 ## Dynamic link in img
