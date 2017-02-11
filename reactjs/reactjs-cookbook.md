@@ -5,6 +5,69 @@
   - How to bind multiple field and add them to an array list? - DONE
   
   
+## Component, PureComponent, Stateless functional Component
+
+  1. Component
+  
+  ```javascript
+    import React, { Component } from 'react';
+
+    class Header extends Component {
+      constructor (props) {
+        super (props);
+        this.state = {}
+      }
+      render () {
+        return (
+            <div className="App-header">
+              <h1>Risk Log</h1>
+            </div>
+        )
+      }
+    };
+    export default Header  
+  ```
+
+  
+  2. PureComponents
+  
+  ```javascript
+    import React, { PureComponent } from 'react';
+
+    class Header extends PureComponent {
+      constructor (props) {
+        super (props);
+        this.state = {}
+      }
+      render () {
+        return (
+            <div className="App-header">
+              <h1>Risk Log</h1>
+            </div>
+        )
+      }
+    };
+    export default Header
+  ```
+  
+  3. Stateless Functional Component
+  
+  ```javascript
+    import React from 'react';
+
+    const Header = () => {
+      return (
+          <div className="App-header">
+            <h1>Risk Log</h1>
+          </div>
+      )
+    }
+
+    export default Header
+  ```
+  
+  
+  
 ## Basic Search in a list of items
 
 ```javascript
