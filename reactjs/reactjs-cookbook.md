@@ -431,7 +431,7 @@ create-react-app my-project
   ```
 
 
-## Bind Input Field
+## Bind 1 Input Field with onChange
 
   1. App.js
   use onChange event on the input field to track if the field changes. if yes the handleInputChange() will take the target.value of the   element input, store it on a temporary variable and then use it to setState.
@@ -503,6 +503,147 @@ create-react-app my-project
     };
     export default TaskForm
   ```
+  
+## Bind and add multiple input field with onChange + clear field
+  
+  1. App.js container holds the array and the methods
+  
+  ```javascript
+    import React, { Component } from 'react';
+
+    import './App.css';
+    import Risks from '.././assets/RisksDB';
+
+    import Header from './../components/Header';
+    import RiskList from '.././components/RiskList';
+    import AddRiskForm from './../components/AddRiskForm';
+
+    class App extends Component {
+      constructor (props) {
+        super (props);
+        this.state = {
+          risks: this.getLocalStorage() || Risks,
+          tempTitle: '',
+          tempDescription: '',
+        }
+      }
+
+      handleChangeTitle = (e) => {
+        let newTitle = e.target.value;
+        this.setState({tempTitle:newTitle})
+      }
+
+      handleChangeDescription = (e) => {
+        let newDescription = e.target.value;
+        this.setState({tempDescription:newDescription})
+      }
+
+      addRisk = () => {
+        let id = Date.now();
+        let title = this.state.tempTitle;
+        let description = this.state.tempDescription;
+        let isOpen = true;
+        this.setState({
+          risks: this.state.risks.concat({id, title, description, isOpen}),
+          tempTitle: '',
+          tempDescription: ''
+        })
+        this.updateLocalStorage(this.state.risks)
+      }
+
+      updateLocalStorage = (risks) => {
+        if (!window.localStorage) {
+          return console.log('Your Browser doesn\'t support Local Storage. Sorry we cannot save your risk. Try to update your browser to latest version');
+        } else {
+          return localStorage["Risk-Log-002"] = JSON.stringify(risks)
+        }
+      }
+
+      getLocalStorage = () => {
+        return JSON.parse(localStorage["Risk-Log-002"]);
+      }
+
+      render() {
+        return (
+          <div className="App">
+            <Header />
+            <AddRiskForm
+              addRisk={this.addRisk}
+              handleChangeTitle={this.handleChangeTitle}
+              handleChangeDescription={this.handleChangeDescription}
+            />
+            <RiskList risks={this.state.risks}/>
+          </div>
+        );
+      }
+    }
+
+    export default App;
+  ```
+  
+  2. AddRiskForm.js pure component calls addRisk inside local addRisk function (the local function could be called in any way). This is usefull as the local function beside calling the function in App.js, can be used to do other local operation, like use refs to clean the field and event.prevent default. It could also be used to pass parameters to the App.js function (in this case needs to be ```javascript 
+  onClick={() => {this.props.addRisk(param)}}```
+  
+  ```javascript
+    import React, { Component } from 'react';
+
+    import './addRiskForm.css'
+
+    class AddRiskForm extends Component {
+      constructor (props) {
+        super (props);
+        this.state = {}
+      }
+
+      addRisk = (e) => {
+        e.preventDefault();
+        this.props.addRisk();
+        this.refs.title.value = '';
+        this.refs.description.value = '';
+      }
+
+      render () {
+        return (
+          <form className="form-horizontal">
+            <div className="form-group">
+              <label className="col-sm-2 control-label">Risk Title</label>
+              <div className="col-sm-10">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Risk Title"
+                  autoFocus
+                  ref="title"
+                  onChange={this.props.handleChangeTitle}
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <label className="col-sm-2 control-label">Risk Description</label>
+              <div className="col-sm-10">
+                <textarea
+                  className="form-control"
+                  rows="3"
+                  placeholder="Risk Description"
+                  ref="description"
+                  onChange={this.props.handleChangeDescription}
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <div className="col-sm-offset-2 col-sm-10">
+                <button type="submit" className="btn btn-default" onClick={this.addRisk}>Sign in</button>
+              </div>
+            </div>
+          </form>
+            )
+      }
+    };
+    export default AddRiskForm  
+  ```
+ 
+
+
 
 ## Add element to Array
 
