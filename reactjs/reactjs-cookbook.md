@@ -581,8 +581,7 @@ create-react-app my-project
     export default App;
   ```
   
-  2. AddRiskForm.js pure component calls addRisk inside local addRisk function (the local function could be called in any way). This is usefull as the local function beside calling the function in App.js, can be used to do other local operation, like use refs to clean the field and event.prevent default. It could also be used to pass parameters to the App.js function (in this case needs to be ```javascript 
-  onClick={() => {this.props.addRisk(param)}}```
+  2. AddRiskForm.js pure component calls addRisk inside local addRisk function (the local function could be called in any way). This is usefull as the local function beside calling the function in App.js, can be used to do other local operation, like use refs to clean the field and event.prevent default. It could also be used to pass parameters to the App.js function (in this case when used in render() needs to be ```onClick={() => {this.props.addRisk(param)}}```
   
   ```javascript
     import React, { Component } from 'react';
