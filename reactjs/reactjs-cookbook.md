@@ -189,6 +189,7 @@ import logo from './../assets/logo.svg';
   ```
   
   3. `this.state.items` and `deleteItem(index)` are passed down App.js -> ItemList.js -> Item.js
+    
     3.1. From App.js -> ItemList.js
 
     ```javascript
