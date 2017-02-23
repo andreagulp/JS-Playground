@@ -27,7 +27,7 @@
   ```
   
   ```javascript
-        <MuiThemeProvider>
+      <MuiThemeProvider>
         <ChildComponent />
       </MuiThemeProvider>
   ```
