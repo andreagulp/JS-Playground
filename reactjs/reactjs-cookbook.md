@@ -4,6 +4,34 @@
   - How to clear an input field? - DONE
   - How to bind multiple field and add them to an array list? - DONE
   
+## Import Material UI for react (http://www.material-ui.com)
+
+  1. Install Material UI + required module
+  
+  ```
+  npm i -s material-ui
+  npm i -s react-tap-event-plugin
+  ```
+  
+  2. Import injectTapEventPlugin in Index.js
+  
+  ```javascript
+  import injectTapEventPlugin from 'react-tap-event-plugin';
+  injectTapEventPlugin();
+  ```
+  
+  3. Import MuiThemeProvider in app container (e.g App.js)
+  
+  ```javascript
+  import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+  ```
+  
+  ```javascript
+        <MuiThemeProvider>
+        <ChildComponent />
+      </MuiThemeProvider>
+  ```
+  
 
 ## Call Api with axios and set to an array in this.state
 
