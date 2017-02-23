@@ -4,6 +4,18 @@
   - How to clear an input field? - DONE
   - How to bind multiple field and add them to an array list? - DONE
   
+
+## Call Api with axios and set to an array in this.state
+
+  ```javascript
+    componentDidMount () {
+    axios.get(this.state.gitHubBaseUrl)
+                  .then(response => {
+                    this.setState({gitIssuesList: response.data});
+                  })
+  }
+  ```
+  
   
   
 ## Component, PureComponent, Stateless functional Component
