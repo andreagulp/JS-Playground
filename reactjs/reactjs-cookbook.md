@@ -1,8 +1,35 @@
 # Reactjs Cookbook
 
-## Questions that need answers
-  - How to clear an input field? - DONE
-  - How to bind multiple field and add them to an array list? - DONE
+## Clear Input field with react-bootstrap <formControl>
+
+  1.  If you need to access the value of an uncontrolled <FormControl>, attach a ref to it as you would with an uncontrolled input, then call ReactDOM.findDOMNode(ref) to get the DOM node. You can then interact with that node as you would with any other uncontrolled input.
+  
+  ```javascript
+    addRisk = (e) => {
+    e.preventDefault();
+    this.props.addRisk();
+    ReactDOM.findDOMNode(this.refs.title).value = '';
+    ReactDOM.findDOMNode(this.refs.description).value = '';
+  }
+  
+  {...}
+  
+      <FormControl
+        type="text"
+        placeholder="title"
+        ref="title"
+        onChange={this.props.handleChangeTitle}
+      />
+
+    {...}
+      <FormControl
+        componentClass="textarea"
+        placeholder="description"
+        ref="description"
+        onChange={this.props.handleChangeDescription}
+      />
+  ```
+  
   
 ## Import Material UI for react (http://www.material-ui.com)
 
