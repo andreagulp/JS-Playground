@@ -360,11 +360,21 @@ export default App;
 
 ## Import bootstrap 3, theme, fonteawesome
 
-```sh
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
-import 'font-awesome/css/font-awesome.css';
-```
+
+  1. Install Bootstrap 3 and Fontawesome
+  
+  ```sh
+  npm i -s bootstrap
+  npm i -s font-awesome
+  ```
+  
+  2. Import in Index.js
+  
+  ```javascript
+  import 'bootstrap/dist/css/bootstrap.css';
+  import 'bootstrap/dist/css/bootstrap-theme.css';
+  import 'font-awesome/css/font-awesome.css';
+  ```
 
 
 ## Use create-react-app command
