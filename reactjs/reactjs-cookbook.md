@@ -345,6 +345,9 @@ class App extends Component {
     this.setState({
       items: this.state.items
     })
+  }
+  
+  componentDidUpdate = () => {
     this.updateLocalTodos(this.state.items);
   }
 
