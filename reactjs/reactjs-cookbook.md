@@ -388,7 +388,7 @@ export default App;
 ```
 
 
-## Import bootstrap 3, theme, fonteawesome
+## Import bootstrap 3, theme, fonteawesome Method 1
 
 
   1. Install Bootstrap 3 and Fontawesome
@@ -404,6 +404,22 @@ export default App;
   import 'bootstrap/dist/css/bootstrap.css';
   import 'bootstrap/dist/css/bootstrap-theme.css';
   import 'font-awesome/css/font-awesome.css';
+  ```
+  
+## Import bootstrap and jquery Method 2 (using require)
+
+  1. install bootstrap and jquery
+  
+  ```sh
+  npm i bootstrap jquery -s
+  ```
+  
+  2. import in index.js and require bootstrap and jquery
+  
+  ```javascript
+    global.jQuery = require('jquery');
+    require('bootstrap');
+    import 'bootstrap/dist/css/bootstrap.css'
   ```
 
 
