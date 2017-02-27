@@ -1,5 +1,37 @@
 # Reactjs Cookbook
 
+
+## Use a defulat value for input field
+
+  1. Parent Component
+  
+  ```javascript
+      this.state = {
+        currentTime: moment.duration(25, 'minutes'),
+        baseTime: moment.duration(25, 'minutes')
+      }
+    }
+
+    {...}
+
+      <TimerConfig
+        baseTime={this.state.baseTime}
+      />  
+
+      {...}
+
+  ```
+
+  2. Child Component
+  
+  ```javascript
+  <input id="hours" className="form-control" type="number" defaultValue={props.baseTime.get('hours')}/>
+  <input id="minutes" className="form-control" type="number" defaultValue={props.baseTime.get('minutes')}/>
+  <input id="seconds" className="form-control" type="number" defaultValue={props.baseTime.get('seconds')}/>
+  ```
+
+
+
 ## Clear Input field with react-bootstrap <formControl>
 
   1.  If you need to access the value of an uncontrolled <FormControl>, attach a ref to it as you would with an uncontrolled input, then call ReactDOM.findDOMNode(ref) to get the DOM node. You can then interact with that node as you would with any other uncontrolled input.
