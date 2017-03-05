@@ -94,7 +94,14 @@
 
 ## Call Api with axios and set to an array in this.state
 
+  ```sh
+  npm i -s axios
+  ```
+
   ```javascript
+    {...}
+    import axios from 'axios'
+    {...}
     componentDidMount () {
     axios.get(this.state.gitHubBaseUrl)
                   .then(response => {
