@@ -162,15 +162,17 @@
   ```javascript
     import React from 'react';
 
-    const Header = () => {
-      return (
-          <div className="App-header">
-            <h1>Risk Log</h1>
-          </div>
-      )
-    }
+    const CardStat001 = (props) => {
 
-    export default Header
+        return (
+            <div>
+                <p>All Issues: {props.issuesCount}</p>
+                <p>Open Issues: {props.issuesCountOpen}</p>
+                <p>Closed Issues: {props.issuesCountClosed}</p>
+            </div>
+        )
+    };
+    export default CardStat001
   ```
   
   
