@@ -1,5 +1,13 @@
 # Reactjs Cookbook
 
+## Use Filter to count category
+
+  ```javascript
+  let issuesCountClosed = this.state.gitIssues.filter(x => x.state === 'closed').length
+  ```
+
+
+
 
 ## Use a defulat value for input field
 
