@@ -1,5 +1,18 @@
 # Reactjs Cookbook
 
+## datatime formatting with momentjs
+
+```javascript
+{moment(issue.created).fromNow()}
+```
+
+## Conditional render jsx with inline if
+
+```javascript
+              {issue.e2eCycleTime !== 'Invalid date' ? <TableRowColumn>{issue.e2eCycleTime}</TableRowColumn> :  <TableRowColumn>started {moment(issue.created).fromNow()}</TableRowColumn>}
+
+```
+
 ## Call APi with axios and make statistical calculation and store them in a new array
 
   ```javascript
