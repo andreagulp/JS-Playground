@@ -1,5 +1,86 @@
 # Reactjs Cookbook
 
+## Call APi with axios and make statistical calculation and store them in a new array
+
+  ```javascript
+    import React, { Component } from 'react';
+    import './App.css';
+
+    import CardStat001 from '.././components/CardStat001';
+    import TableGit from '.././components/TableGit';
+
+    import axios from 'axios'
+    import moment from 'moment';
+
+    class App extends Component {
+      constructor (props) {
+        super (props);
+        this.state = {
+          gitHubBaseUrl: 'https://github.ibm.com/api/v3/repos/EMEA-Accelerate/Transition-Team/issues?access_token=d6ce7c2a96a7146f1da65e4392c37d19db1a7a7f&per_page=100&state=all&page=0',
+          gitIssues: [],
+          cycleTimeData: [],
+        }
+      }
+
+    // API call
+      getGit = () => {
+        axios.get(this.state.gitHubBaseUrl)
+                      .then(response => {
+                        response = response.data;
+                        this.setState({gitIssues: response});
+                        let tempCycleTimeData = this.state.gitIssues.map((x) => {
+                          return {
+                            issueNum: x.number,
+                            issueTitle: x.title,
+                            issueStatus: x.state,
+                            created: x.created_at,
+                            closed: x.closed_at,
+                            e2eCycleTime: moment.utc(moment(x.closed_at).diff(moment(x.created_at))).format("HH:mm:ss"),
+                            startWeekNum: moment(x.created_at).week(),
+                            closedWeekNum: moment(x.closed_at).week()
+                          }
+                        })
+                        this.setState({
+                          cycleTimeData: tempCycleTimeData
+                        })
+                      })
+      }
+
+      componentWillMount = () => {
+        this.getGit();
+        console.log(Date.now());
+      }
+
+
+      render() {
+
+    // Calculations
+        let issuesCount = this.state.gitIssues.length
+        let issuesCountClosed = this.state.gitIssues.filter(x => x.state === 'closed').length
+        let issuesCountOpen = this.state.gitIssues.filter(x => x.state === 'open').length
+        let percOpen = Math.floor((issuesCountOpen / issuesCount) * 100) + '%'
+
+        return (
+          <div>
+
+            <CardStat001
+              issuesCount={issuesCount}
+              issuesCountOpen={issuesCountClosed}
+              issuesCountClosed={issuesCountOpen}
+              percOpen={percOpen}
+            />
+            <TableGit
+              cycleTimeData={this.state.cycleTimeData}
+            />
+          </div>
+          );
+        }
+      }
+
+    export default App;
+  
+  ```
+
 ## Use Filter to count category
 
   ```javascript
