@@ -1,9 +1,22 @@
 # Reactjs Cookbook
 
-## Command line - delete file
+## Command line - delete files
 
 ```sh
 cd src && rm App.css App.js App.test.js favicon.ico index.css logo.svg
+```
+
+## Command line - Create Folder
+
+```sh
+mkdir
+```
+
+
+## Command line - create files
+
+```sh
+touch src/CommentBox.js src/Comment.js src/CommentForm.js src/CommentList.js
 ```
 
 ## datatime formatting with momentjs
