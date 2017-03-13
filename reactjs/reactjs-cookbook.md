@@ -1,5 +1,11 @@
 # Reactjs Cookbook
 
+## Command line - delete file
+
+```sh
+cd src && rm App.css App.js App.test.js favicon.ico index.css logo.svg
+```
+
 ## datatime formatting with momentjs
 
 ```javascript
