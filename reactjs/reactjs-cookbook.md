@@ -1,5 +1,122 @@
 # Reactjs Cookbook
 
+## Add, Delete items to / from an array and store in in the locak storage
+
+```javascript
+
+    import React, { Component } from 'react';
+
+    import { Grid, Row, Col, Table } from 'react-bootstrap';
+
+    import Header from '.././components/Header';
+    import risks from './../assets/risksDB';
+    import RisksListHeader from '.././components/RisksListHeader';
+    import RisksList from '.././components/RisksList';
+    import AddRiskForm from '.././components/AddRiskForm';
+
+    class App extends Component {
+      constructor (props) {
+        super (props);
+        this.state = {
+          risks: this.getLocalRisks() || risks,
+          tempTitle: '',
+          tempDescription: '',
+          tempProbability: '',
+          tempImpact: ''
+        }
+      }
+
+      handleChangeTitle = (e) => {
+        let newTitle = e.target.value;
+        this.setState({tempTitle: newTitle})
+      }
+
+      handleChangeDescription = (e) => {
+        let newDescription = e.target.value;
+        this.setState({tempDescription: newDescription})
+      }
+
+      handleChangeImpact = (e) => {
+        let newImpact = e.target.value;
+        this.setState({tempImpact: newImpact})
+      }
+
+      handleChangeProbability = (e) => {
+        let newProbability = e.target.value;
+        this.setState({tempProbability: newProbability})
+      }
+
+      addRisk = () => {
+        let id = Date.now();
+        let title = this.state.tempTitle;
+        let description = this.state.tempDescription;
+        let isOpen = true;
+        let impact = this.state.tempImpact;
+        let probability = this.state.tempProbability;
+        this.setState({
+          risks: this.state.risks.concat({id, title, description, isOpen, impact, probability}),
+          tempTitle: '',
+          tempDescription: ''
+        })
+      }
+
+      componentDidUpdate = () => {
+        this.updateLocalRisks(this.state.risks)
+      }
+
+      deleteRisk = (index) => {
+        this.state.risks.splice(index, 1);
+        this.setState({risks: this.state.risks});
+        this.updateLocalRisks(this.state.risks);
+      }
+
+      render() {
+        return (
+          <div className="App">
+            <Header />
+
+            <Grid>
+              <Row className="show-grid">
+                <Col md={6} mdPush={6}>
+                  <Table striped bordered condensed hover>
+                    <RisksListHeader />
+                    {this.state.risks.map((risk, i) => <RisksList deleteRisk={this.deleteRisk} risk={risk} key={i} index={i} />)}
+                  </Table>
+                </Col>
+                <Col md={6} mdPull={6}>
+                  <AddRiskForm
+                    handleChangeTitle={this.handleChangeTitle}
+                    handleChangeDescription={this.handleChangeDescription}
+                    handleChangeImpact={this.handleChangeImpact}
+                    handleChangeProbability={this.handleChangeProbability}
+                    addRisk={this.addRisk}
+                  />
+                </Col>
+              </Row>
+            </Grid>
+          </div>
+        );
+      }
+
+      updateLocalRisks = (risks) => {
+
+        localStorage["Risk-Log-Storage-001"] = JSON.stringify(risks);
+      }
+
+      getLocalRisks = () => {
+        if (!window.localStorage) {
+            return "";
+        }
+        if (localStorage["Risk-Log-Storage-001"]) {
+            return JSON.parse(localStorage["Risk-Log-Storage-001"]);
+        }
+      }
+    }
+    
+    export default App;
+
+```
+
 ## Command line - delete files
 
 ```sh
