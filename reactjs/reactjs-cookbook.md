@@ -5,12 +5,12 @@
     1. The push() method adds one or more elements to the end of an array and returns the new length of the array.
     
     ```javascript
-    const state2 = update(state1, {$push: ['z']})
+        const state2 = update(state1, {$push: ['z']})
     ```
     
     2. The unshift() method adds one or more elements to the beginning of an array and returns the new length of the new array.
     
-    ``javascript
+    ```javascript
     {$unshift: array}
     ```
 
