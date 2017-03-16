@@ -1,5 +1,15 @@
 # Reactjs Cookbook
 
+## Install and import mutability-helper
+
+```sh
+npm i -s immutability-helper
+```
+
+```javascript
+import update from 'immutability-helper';
+```
+
 ## Javascript CRUD operations and associated immutability-helper commands
 
 1. The ```push()``` method adds one or more elements to the end of an array and returns the new length of the array.
