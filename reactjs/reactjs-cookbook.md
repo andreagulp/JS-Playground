@@ -2,11 +2,31 @@
 
 ## Javascript CRUD operations and associated immutability-helper commands
 
-    1. The push() method adds one or more elements to the end of an array and returns the new length of the array.
+1. The ```push()``` method adds one or more elements to the end of an array and returns the new length of the array.
+
+```javascript
+const state2 = update(state1, {$push: ['z']})
+```
+
     
-    ```
-        const state2 = update(state1, {$push: ['z']})
-    ```
+2. The ```unshift()``` method adds one or more elements to the beginning of an array and returns the new length of the new array.
+
+```javascript
+{$unshift: array}
+```
+
+3. The ```splice()``` method changes the contents of an array by removing existing elements and/or adding new elements.
+
+```javascript
+{$splice: array of arrays}
+```
+
+4. ```{$set: any}``` replace the target entirely.
+
+5. ```{$merge: object}``` merge the keys of object with the target.
+
+6. ```{$apply: function}``` passes in the current value to the function and updates it with the new returned value.
+
 
 
 ## Add, Delete items to / from an array and store in in the locak storage
