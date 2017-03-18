@@ -1,7 +1,7 @@
 # Reactjs Cookbook
 
 ## Way to update an item in a list array
-Not the best way but work. keep searching new way
+Not the best way but works. Keep searching new way
 
 1. App.js
 
