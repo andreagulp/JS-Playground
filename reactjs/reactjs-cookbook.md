@@ -1,5 +1,112 @@
 # Reactjs Cookbook
 
+## Way to update an item in a list array
+Not the best way but work. keep searching new way
+
+1. App.js
+
+```javascript
+
+import React, { Component } from 'react';
+import itemsDB from '../assets/itemsDB';
+
+import Item from '../components/Item';
+import AddItemForm from '../components/AddItemForm';
+import AddButton from '../components/AddButton';
+
+class App extends Component {
+  constructor (props) {
+    super (props);
+    this.state = {
+      items: itemsDB,
+      newItem: ''
+    }
+  }
+
+  handleItemChange = (e) => {
+    let tempItem = e.target.value;
+    this.setState({newItem: tempItem})
+  }
+
+  additem = () => {
+    this.setState({items: this.state.items.concat(this.state.newItem)})
+  }
+
+  deleteItem = (index) => {
+    this.state.items.splice(index, 1)
+    this.setState({items: this.state.items})
+  }
+
+  updateItem = (index) => {
+    let editedItem = this.state.items[index]
+    this.state.items.splice(index, 1)
+    this.setState({newItem:editedItem})
+    this.setState({items: this.state.items})
+  }
+
+  render () {
+
+    const itemList = this.state.items.map((item, i) => {
+      return (
+          <Item
+            item={item}
+            key={i}
+            index={i}
+            deleteItem={this.deleteItem}
+            updateItem={this.updateItem}
+          >
+          </Item>
+      )
+    })
+
+    return (
+        <div>
+          <h3> A super test app </h3>
+          <AddItemForm
+            handleItemChange={this.handleItemChange}
+            newItem={this.state.newItem}
+          />
+          <AddButton
+            additem={this.additem}
+          />
+          <ul>{itemList}</ul>
+        </div>
+    )
+  }
+};
+export default App
+```
+
+2. Item.js
+
+```javascript
+import React, { PureComponent } from 'react';
+
+class Item extends PureComponent {
+
+  deleteItem = () => {
+    this.props.deleteItem(this.props.index)
+  }
+
+  updateItem = () => {
+    this.props.updateItem(this.props.index)
+  }
+
+  render () {
+    return (
+      <div>
+        <li>
+          {this.props.item}
+          <span><button onClick={this.deleteItem}>delete</button></span>
+          <span><button onClick={this.updateItem}>update</button></span>
+        </li>
+      </div>
+    )
+  }
+};
+export default Item
+```
+
 ## Install and import mutability-helper
 
 ```sh
