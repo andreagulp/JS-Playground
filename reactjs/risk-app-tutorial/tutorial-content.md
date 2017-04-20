@@ -20,10 +20,27 @@ In some cases, we will use the most straith forward solution and then refactor f
 
 ### IDE - code editor
 I personally use Atom to code with react. Atom is a good editor. Below I'll provide my Atom configuration. 
-Most of modern IDE will be good, that's really your preference. In many cases you will be able to find also similar plugin.
-My Atom packages list:
+Most of modern IDEs will be good, that's really your preference. In many cases you will be able to find also similar plugin.
+My Atom packages list (on top of the Atom default packages):
   - atom-ternjs
-  - 
+  - auto-detect-indentation
+  - autocomplete-modules
+  - autoupdate-packages
+  - file-icons
+  - fold-functions
+  - language-babel
+  - open_in_cmd
+  - pigments
+
+### Developers Environment
+You need to have installed globally node.js / npm. 
+To start up my react application I use [create-react-app](https://github.com/facebookincubator/create-react-app).
+Before using create-react-app, install it globally
+```sh
+npm i g create-react-app
+```
+
+## asd
 
 
 
