@@ -41,7 +41,10 @@ npm i g create-react-app
 ```
 
 ## Plan the App
-
+React is all about components. It make sense to start plan our up by understanding the different components that we will need to form our app.
+My personal suggestion is to avoid to create too big components as it becomes more difficult to reuse them.
+As you can see, I'm yet not taking opportunity to reuse the components that I create. In a future episode of this tutorial we will re-factor the app so that we maximize the usability of the components making up the app.
+[!alt text] (https://github.com/andreagulp/JS-Playground/blob/master/reactjs/risk-app-tutorial/img/risk-log-app-components-002.png)
 
 
 
