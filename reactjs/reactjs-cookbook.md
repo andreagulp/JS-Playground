@@ -36,6 +36,8 @@
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
+## Generate TOC for markdown with online generator
+https://ecotrust-canada.github.io/markdown-toc/
 
 ## Way to update an item in a list array
 Not the best way but works. Keep searching new way
