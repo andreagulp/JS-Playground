@@ -47,5 +47,28 @@ As you can see, I'm yet not taking opportunity to reuse the components that I cr
 ![alt text](https://github.com/andreagulp/JS-Playground/blob/master/reactjs/risk-app-tutorial/img/risk-log-app-components-002.png)
 
 
+## Create the App and install the dependencies
+use create-react-app to scaffold your initial project
+Open a cmd (I personally use gitBash) and use create-react-app to get your app up and running.
+```sh
+create-react-app risk-log-001
+```
+after the setup is completed
+```sh
+cd risk-log-001
+```
+and
+```sh
+npm start
+```
+
+The app uses [material-ui](http://www.material-ui.com) for the UI element, so we will install and configure material-ui to be used in our app.
+
+```sh
+npm i --save material-ui react-tap-event-plugin
+```
+
+
+
 
 
