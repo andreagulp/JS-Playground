@@ -1,5 +1,39 @@
 # Reactjs Cookbook
 
+## Table of Content
+- [Reactjs Cookbook](#)
+	- [Way to update an item in a list array](#)
+	- [Install and import mutability-helper](#)
+	- [Javascript CRUD operations and associated immutability-helper commands](#)
+	- [Add, Delete items to / from an array and store in in the locak storage](#)
+	- [Command line - delete files](#)
+	- [Command line - Create Folder](#)
+	- [Command line - create files](#)
+	- [datatime formatting with momentjs](#)
+	- [Conditional render jsx with inline if](#)
+	- [Call APi with axios and make statistical calculation and store them in a new array](#)
+	- [Use Filter to count category](#)
+	- [Use a defulat value for input field](#)
+	- [Clear Input field with react-bootstrap ](#)
+	- [Import Material UI for react (http://www.material-ui.com)](#)
+	- [Call Api with axios and set to an array in this.state](#)
+	- [Component, PureComponent, Stateless functional Component](#)
+	- [Basic Search in a list of items](#)
+	- [Clean Input Field](#)
+	- [Dynamic link in img](#)
+	- [Delete item from array with onClick event](#)
+	- [Tutorials](#)
+	- [Implement Local Storage](#)
+	- [Import bootstrap 3, theme, fonteawesome Method 1](#)
+	- [Import bootstrap and jquery Method 2 (using require)](#)
+	- [Use create-react-app command](#)
+	- [Import external library](#)
+	- [render an array of items with .map](#)
+	- [Bind 1 Input Field with onChange](#)
+	- [Bind and add multiple input field with onChange + clear field](#)
+	- [Add element to Array](#)
+	- [Add multiple inputs field to an array of object using refs](#)
+
 ## Way to update an item in a list array
 Not the best way but works. Keep searching new way
 
