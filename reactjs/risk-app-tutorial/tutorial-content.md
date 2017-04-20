@@ -40,7 +40,8 @@ Before using create-react-app, install it globally
 npm i g create-react-app
 ```
 
-## asd
+## Plan the App
+
 
 
 
